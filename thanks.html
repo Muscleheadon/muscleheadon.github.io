@@ -70,7 +70,7 @@ a.pay{display:block;width:100%;margin-top:14px;padding:15px;border:0;border-radi
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 var q=new URLSearchParams(location.search),id=q.get('razorpay_payment_link_id');
 function init(am){fbq('init','1384135736776247',am||{});fbq('track','PageView');}
-if(id&&/^plink_/.test(id)){fetch('https://script.google.com/macros/s/AKfycbzhRMHKj1NpO4b19tFbZb1Xd8MkI3HJ8OnfO9bFGMuh8yyGz_5u4WtYtHn_RW5ritrc/exec',{method:'POST',body:JSON.stringify({action:'verify',id:id})}).then(function(r){return r.json()}).then(function(v){
+if(id&&/^plink_/.test(id)){fetch('https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec',{method:'POST',body:JSON.stringify({action:'verify',id:id})}).then(function(r){return r.json()}).then(function(v){
 var am={};if(v.em)am.em=v.em;if(v.ph)am.ph=v.ph;init(am);
 if(v.ok&&v.paid)fbq('track','Purchase',{value:v.value,currency:'INR',content_type:'product',content_ids:v.ids,num_items:v.ids.length},{eventID:id});
 }).catch(function(){init();});}else{init();}

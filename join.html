@@ -84,7 +84,7 @@ var f={action:'membership',period:plan,name:v('name'),email:v('email'),phone:v('
 if(!f.name||!f.email||!f.phone){err.textContent='Please fill in name, email and WhatsApp number.';return;}
 try{fbq('track','InitiateCheckout',{value:plan==='year'?3999:399,currency:'INR',content_name:'Community '+(plan==='year'?'yearly':'monthly')});}catch(e){}
 b.disabled=true;b.textContent='OPENING SECURE PAYMENT\u2026';
-fetch('https://script.google.com/macros/s/AKfycbzhRMHKj1NpO4b19tFbZb1Xd8MkI3HJ8OnfO9bFGMuh8yyGz_5u4WtYtHn_RW5ritrc/exec',{method:'POST',body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(r){if(r&&r.ok&&r.url){location.href=r.url;return;}throw new Error((r&&r.error)||'Something went wrong. Please try again.');})
+fetch('https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec',{method:'POST',body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(r){if(r&&r.ok&&r.url){location.href=r.url;return;}throw new Error((r&&r.error)||'Something went wrong. Please try again.');})
 .catch(function(e){b.disabled=false;b.textContent='CONTINUE TO PAYMENT';err.textContent=(e&&e.message&&e.message.indexOf('fetch')<0)?e.message:'Connection issue. Please tap again.';});
 });
 </script>
