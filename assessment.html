@@ -110,6 +110,15 @@ button.go,a.go{font-size:16.5px}
 a.ghost,button.ghost,a.follow{font-size:15px}
 .ig .two .go,.ig .two .ghost{letter-spacing:.08em;font-size:15px;padding-inline:8px}
 .hint{font-size:13.5px;color:#A89E82;margin:-3px 0 10px 2px}
+
+/* readability pass 2 */
+.e,.k,.meta,.qn,.pills span,.lever .tag,.ig .tag,.ov span{font-size:14px}
+.blk p b,.p .h span,.p .s em{font-size:13.5px}
+.by span{font-size:15.5px}.scale{font-size:15px}.back{font-size:15.5px}
+.hint{font-size:15px}.ok{font-size:15.5px}.fine{font-size:14px}
+.ig ol{font-size:16.5px}.mindcap{font-size:16px}
+.blk p,.best{font-size:17px}.p .m,.p .s{font-size:16.5px}
+label.c{font-size:16px}.pains div{font-size:16.5px}
 </style>
 </head>
 <body><main class="w">
@@ -155,7 +164,7 @@ a.ghost,button.ghost,a.follow{font-size:15px}
 <section id="result" hidden>
 <h1 style="margin-bottom:0">Your <em>Blueprint</em></h1>
 <div class="ov"><b id="overall"></b><span id="ovlevel"></span></div>
-<svg class="radar" id="radar" viewBox="-84 0 508 318" aria-label="Your six pillar scores, with Mind at the centre"></svg>
+<svg class="radar" id="radar" viewBox="-58 -2 476 326" aria-label="Your six pillar scores, with Mind at the centre"></svg>
 <p class="mindcap" id="mindcap"></p>
 <div class="ok" id="mailed">Sending your full report&hellip;</div>
 <div class="lever" id="lever"></div>
@@ -250,11 +259,11 @@ s+='<polygon points="'+HEX.map(function(k,i){return pt(i,R*sc[k]/5).join(',')}).
 var M=mindGeo(sc,cx,cy,R);
 HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<line x1="'+M.x+'" y1="'+M.y+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#8478B0" stroke-opacity="'+(0.25+0.6*sc[k]/5)+'" stroke-width="'+(0.8+1.8*sc[k]/5)+'"/>';});
 s+='<circle cx="'+M.x+'" cy="'+M.y+'" r="'+(M.r*2.1)+'" fill="url(#halo)"/><circle cx="'+M.x+'" cy="'+M.y+'" r="'+M.r+'" fill="none" stroke="#B3A8E0" stroke-width="1.5" stroke-opacity=".9"/>';
-s+='<text x="'+M.x+'" y="'+(M.y+4)+'" text-anchor="middle" fill="#F2EEFF" font-family="Barlow Condensed,sans-serif" font-size="13" letter-spacing="1">MIND '+M.m.toFixed(1)+'</text>';
+s+='<text x="'+M.x+'" y="'+(M.y+4)+'" text-anchor="middle" fill="#F2EEFF" font-family="Barlow Condensed,sans-serif" font-size="18" letter-spacing=".5">MIND '+M.m.toFixed(1)+'</text>';
 HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(k===r.wi?6:4)+'" fill="'+(k===r.wi?'#E08A6E':P[k].c)+'"/>';});
 var short=['Workout','Nutrition','Supplements','Wellness','Clinical','Recovery'];
 for(var i=0;i<n;i++){var k=HEX[i],p=pt(i,R+20),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
-s+='<text x="'+p[0]+'" y="'+(p[1]+(p[1]<cy-20?0:p[1]>cy+20?10:4))+'" text-anchor="'+anc+'" fill="'+(k===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="15" letter-spacing="1">'+short[i].toUpperCase()+'</text>';}
+s+='<text x="'+p[0]+'" y="'+(p[1]+(p[1]<cy-20?0:p[1]>cy+20?10:4))+'" text-anchor="'+anc+'" fill="'+(k===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="22" letter-spacing=".5">'+short[i].toUpperCase()+'</text>';}
 el('radar').innerHTML=s;
 var mc=el('mindcap');if(mc)mc.innerHTML='<b style="color:#B3A8E0">Mind sits at the centre</b> and connects to every pillar. It leans toward the pillars you already pay attention to'+(r.bi!==MI?' (yours: '+P[r.bi].n.toLowerCase()+')':'')+'. Turn that attention to '+(r.wi!==MI?P[r.wi].n.toLowerCase():'your weakest pillar')+' and it starts to scale up.';}
 
