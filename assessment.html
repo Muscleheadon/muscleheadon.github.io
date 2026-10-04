@@ -64,11 +64,20 @@ svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
 .nk span{font-size:13.5px;color:#A89E82;line-height:1.45}.nk b{color:#EDE4CC;font-weight:500;display:block;font-size:15px}
 .ok{background:#121008;border:1px solid #2A251A;border-radius:8px;padding:10px 12px;font-size:13.5px;color:#A89E82;text-align:center;margin:8px 0 0}
 .fine{color:#6E6553;font-size:11.5px;line-height:1.6;margin-top:18px;text-align:center}
+.ig{border:1px solid #6B5422;background:linear-gradient(180deg,#1C160C,#121008);border-radius:12px;padding:18px;margin:18px 0}
+.ig .tag{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#C9A048}
+.ig h2{margin:6px 0 6px}
+.ig ol{margin:8px 0 12px 18px;padding:0;color:#EDE4CC;font-size:14.5px;line-height:1.6}
+.ig canvas{display:block;width:100%;max-width:260px;margin:12px auto;border-radius:10px;border:1px solid #2A251A}
+.ig .two{display:flex;gap:8px}.ig .two>*{flex:1}
+.code{font:600 26px 'Barlow Condensed',sans-serif;letter-spacing:.14em;color:#C9A048;text-align:center;border:1px dashed #C9A048;border-radius:8px;padding:12px;margin-top:10px}
+a.follow{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;padding:14px;border-radius:8px;background:linear-gradient(90deg,#833AB4,#C13584 50%,#F77737);color:#fff;font:600 14px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-decoration:none}
+a.follow svg{width:18px;height:18px}
 [hidden]{display:none!important}
 </style>
 </head>
 <body><main class="w">
-<div class="e">THE SUPERHUMAN CLUB &middot; BY MUSCLEHEADON</div>
+<div class="e">SUPERHUMAN CLUB &middot; BY MUSCLEHEADON</div>
 
 <section id="intro">
 <h1>Which pillar is <em>holding you back</em>?</h1>
@@ -76,7 +85,7 @@ svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
 <div class="pains"><div>Tired even after sleeping</div><div>Weight that won&rsquo;t shift</div><div>Energy crashes and cravings</div><div>Training but not changing</div></div>
 <div class="pills"><span>21 QUESTIONS</span><span>5 MINUTES</span><span>FREE</span></div>
 <button class="go" id="begin">START MY FREE ASSESSMENT &rarr;</button>
-<a class="by" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span>Created by <b>Naveen Kulkarni</b><br>Founder, The Superhuman Club &middot; Bandra West</span></a>
+<a class="by" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span>Created by <b>Naveen Chandra Kulkarni</b><br>Founder, Superhuman Club by Muscleheadon &middot; Bandra West</span></a>
 <p class="fine">Educational, not medical advice. Your report is emailed to you; we never share your details.</p>
 </section>
 
@@ -116,8 +125,20 @@ svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
 <div class="best" id="best"></div>
 <div class="k">YOUR SEVEN PILLARS</div>
 <div id="pillars"></div>
+<div class="ig" id="sharebox">
+<div class="tag">GET THE &#8377;99 STARTER FREE</div>
+<h2>Share your score, get the <em>Starter</em> free</h2>
+<ol><li>Save your story card below (or tap share).</li><li>Post it to your Instagram story and tag <b>@muscleheadon</b>.</li><li>Enter your Instagram handle here &mdash; your free code comes straight to your inbox.</li></ol>
+<canvas id="story" width="1080" height="1920" aria-label="Your Blueprint story card"></canvas>
+<div class="two"><button class="go" id="shareStory" style="margin-top:0">SHARE TO STORY</button><button class="ghost" id="saveStory" style="margin-top:0">SAVE IMAGE</button></div>
+<input class="f" id="cemail" type="email" placeholder="Email you took the assessment with" hidden style="margin-top:12px">
+<input class="f" id="handle" placeholder="Your Instagram handle, e.g. @yourname" autocomplete="off" style="margin-top:12px">
+<button class="go" id="claim">I'VE POSTED IT &middot; SEND MY CODE</button>
+<div class="err" id="cerr"></div><div id="codebox" hidden></div>
+<a class="follow" href="https://instagram.com/muscleheadon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>FOLLOW @MUSCLEHEADON</a>
+</div>
 <a class="ghost" id="share" href="#" target="_blank" rel="noopener">SHARE WITH A FRIEND ON WHATSAPP</a>
-<a class="nk" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span><b>Naveen Kulkarni</b>Founder of The Superhuman Club. 12+ years in fitness, ACE and Precision Nutrition certified. Read his story &rarr;</span></a>
+<a class="nk" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span><b>Naveen Chandra Kulkarni</b>Founder of Superhuman Club by Muscleheadon. 12+ years in fitness, ACE and Precision Nutrition certified. Read his story &rarr;</span></a>
 <p class="fine">Scores are self-reported and for education only &mdash; not a diagnosis. If anything here concerns you, speak with your doctor.<br>&copy; 2026 Muscleheadon Health &amp; Fitness Pvt Ltd &middot; Bandra West, Mumbai</p>
 </section>
 </main>
@@ -150,7 +171,7 @@ var bi=0;sc.forEach(function(s,i){if(s>sc[bi])bi=i;});var wi=sc[0]<=sc[1]?0:1;sc
 var avg=sc.reduce(function(x,y){return x+y},0)/sc.length;return{sc:sc,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};}
 function v(id){return el(id).value.trim()}
 el('send').onclick=function(){var err=el('err');err.textContent='';
-var f={action:'assess',name:v('name'),email:v('email'),phone:v('phone'),consent:el('consent').checked,answers:answers,src:src};
+window.__u={name:v('name'),email:v('email')};var f={action:'assess',name:v('name'),email:v('email'),phone:v('phone'),consent:el('consent').checked,answers:answers,src:src};
 if(!f.name){err.textContent='Please enter your first name.';return;}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){err.textContent='Please enter a valid email so we can send your report.';return;}
 var b=this;b.disabled=true;b.textContent='PREPARING YOUR BLUEPRINT…';
@@ -171,8 +192,8 @@ el('best').innerHTML='<b style="color:#C9A048">Your strongest pillar: '+b.n+'.</
 var h='';P.forEach(function(p,i){var s=r.sc[i],L=lvl(s),bd=band(s),weak=i===r.wi;
 h+='<div class="p"><div class="h"><b>'+p.n+'</b><span style="color:'+(weak?'#E08A6E':p.c)+'">'+LV[L].toUpperCase()+' · '+s.toFixed(1)+'/5</span></div><div class="mini"><i style="width:'+(s/5*100)+'%;background:'+(weak?'#B0452F':p.c)+'"></i></div><div class="m">'+p.pain[bd]+'</div><div class="s"><em>TRY THIS</em>'+p.fix[bd]+'</div></div>';});
 el('pillars').innerHTML=h;
-el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Kulkarni (The Superhuman Club). Find your weakest health pillar in 5 minutes: https://muscleheadon.github.io/assessment.html?src=share');
-show('result');}
+el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Find your weakest health pillar in 5 minutes: https://muscleheadon.github.io/assessment.html?src=share');
+show('result');window.__r=r;drawStory(r);}
 function drawRadar(r){var sc=r.sc,cx=170,cy=158,R=112,n=sc.length,s='';
 function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
 for(var g=1;g<=5;g++){var ps=[];for(var i=0;i<n;i++)ps.push(pt(i,R*g/5).join(','));s+='<polygon points="'+ps.join(' ')+'" fill="none" stroke="#2A251A"/>';}
@@ -183,6 +204,42 @@ var short=['Strength','Food','Supps','Stress','Mind','Tools','Sleep'];
 for(var i=0;i<n;i++){var p=pt(i,R+22),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
 s+='<text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="'+anc+'" fill="'+(i===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="12.5" letter-spacing="1.5">'+short[i].toUpperCase()+'</text>';}
 el('radar').innerHTML=s;}
+
+function drawStory(r){var c=el('story'),x=c.getContext('2d'),W=1080,H=1920;
+var go=function(){x.fillStyle='#0D0C0A';x.fillRect(0,0,W,H);
+var g=x.createRadialGradient(540,760,40,540,760,700);g.addColorStop(0,'rgba(201,160,72,.18)');g.addColorStop(1,'rgba(13,12,10,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+x.textAlign='center';x.fillStyle='#9A7A3A';x.font='600 34px "Barlow Condensed"';x.fillText('SUPERHUMAN CLUB  ·  BY MUSCLEHEADON',540,150);
+x.fillStyle='#EDE4CC';x.font='500 96px "Cormorant Garamond"';x.fillText('My Blueprint',540,300);
+x.fillStyle='#C9A048';x.font='500 300px "Cormorant Garamond"';x.fillText(String(r.overall),540,560);
+x.fillStyle='#A89E82';x.font='600 34px "Barlow Condensed"';x.fillText('OUT OF 100  ·  '+r.level.toUpperCase(),540,720);
+var cx=540,cy=1110,R=260,n=7;function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return[cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
+x.strokeStyle='#2E281C';x.lineWidth=2;for(var k=1;k<=5;k++){x.beginPath();for(var i=0;i<n;i++){var p=pt(i,R*k/5);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]);}x.closePath();x.stroke();}
+x.beginPath();r.sc.forEach(function(v,i){var p=pt(i,R*v/5);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]);});x.closePath();x.fillStyle='rgba(201,160,72,.25)';x.fill();x.strokeStyle='#C9A048';x.lineWidth=5;x.stroke();
+var sh=['STRENGTH','FOOD','SUPPS','STRESS','MIND','TOOLS','SLEEP'];x.font='600 30px "Barlow Condensed"';
+for(var i=0;i<n;i++){var p=pt(i,R+60);x.fillStyle=i===r.wi?'#E08A6E':'#A89E82';x.fillText(sh[i],p[0],p[1]+10);}
+x.fillStyle='#EDE4CC';x.font='400 40px Barlow';x.fillText('Strongest: '+P[r.bi].n,540,1490);x.fillStyle='#E08A6E';x.fillText('Working on: '+P[r.wi].n,540,1550);
+x.fillStyle='#C9A048';x.beginPath();if(x.roundRect){x.roundRect(170,1630,740,110,20);}else{x.rect(170,1630,740,110);}x.fill();
+x.fillStyle='#0D0C0A';x.font='600 44px "Barlow Condensed"';x.fillText("WHAT'S YOUR SCORE?  @MUSCLEHEADON",540,1702);
+x.fillStyle='#A89E82';x.font='400 32px Barlow';x.fillText('Free 5-minute assessment · link in @muscleheadon bio',540,1810);};
+if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('500 96px "Cormorant Garamond"'),document.fonts.load('600 34px "Barlow Condensed"'),document.fonts.load('400 40px Barlow')]).then(go,go);}else go();}
+function storyBlob(cb){el('story').toBlob(cb,'image/png');}
+el('saveStory').onclick=function(){storyBlob(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='my-blueprint-score.png';document.body.appendChild(a);a.click();a.remove();});try{fbq('trackCustom','StorySave');}catch(e){}};
+el('shareStory').onclick=function(){storyBlob(function(b){var f=new File([b],'my-blueprint-score.png',{type:'image/png'});
+if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:'My Blueprint score',text:'My Blueprint score — @muscleheadon'}).catch(function(){});}else{el('saveStory').click();}});try{fbq('trackCustom','StoryShare');}catch(e){}};
+el('claim').onclick=function(){var e=el('cerr');e.textContent='';var h=el('handle').value.trim();
+if(h.replace(/[^A-Za-z0-9._]/g,'').length<2){e.textContent='Please enter your Instagram handle.';return;}
+if(!window.__u){var em=el('cemail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){e.textContent='Please enter the email you took the assessment with.';return;}window.__u={email:em};}
+var b=this;b.disabled=true;b.textContent='SENDING YOUR CODE…';
+fetch(API,{method:'POST',body:JSON.stringify({action:'share',email:__u.email,handle:h})}).then(function(r){return r.json()}).then(function(r){
+if(r&&r.ok){b.hidden=true;var cb=el('codebox');cb.hidden=false;cb.innerHTML='<div class="code">'+r.code+'</div><p class="l" style="margin-top:8px">Also sent to your email. <a href="index.html?code='+r.code+'" style="color:#C9A048">Claim your free Starter &rarr;</a></p>';try{fbq('trackCustom','StoryCodeClaimed');}catch(e){}}
+else{b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent=(r&&r.error)||'Something went wrong. Please try again.';}
+}).catch(function(){b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent='Connection issue. Please try again.';});};
+(function(){var c=(new URLSearchParams(location.search)).get('card');if(!c)return;var v=c.split('-').map(function(x){return Number(x)/10});if(v.length!==7||v.some(function(x){return !(x>=1&&x<=5)}))return;
+var bi=0;v.forEach(function(s,i){if(s>v[bi])bi=i;});var wi=v[0]<=v[1]?0:1;v.forEach(function(s,i){if(i!==5&&s<v[wi])wi=i;});var avg=v.reduce(function(a,b){return a+b},0)/7;
+var r={sc:v,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};show('result');['lever','offer','best','pillars','mailed'].forEach(function(id){el(id).hidden=true});document.querySelector('#result .k').hidden=true;
+el('overall').textContent=r.overall;el('ovlevel').textContent='OVERALL \u00b7 '+r.level.toUpperCase();drawRadar(r);drawStory(r);el('cemail').hidden=false;window.__r=r;
+el('share').href='https://wa.me/?text='+encodeURIComponent('I scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Take yours: https://muscleheadon.github.io/assessment.html?src=share');
+setTimeout(function(){el('sharebox').scrollIntoView({behavior:'smooth'});},300);})();
 el('begin').onclick=function(){cur=0;show('quiz');renderQ();try{fbq('trackCustom','AssessmentStart');}catch(e){}};
 el('back').onclick=function(){if(cur>0){cur--;renderQ();}};
 </script>
