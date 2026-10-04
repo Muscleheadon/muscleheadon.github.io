@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8">
+
+<link rel="canonical" href="https://muscleheadon.com/club/assessment">
+<meta property="og:url" content="https://muscleheadon.com/club/assessment">
+<meta property="og:site_name" content="Superhuman Club by Muscleheadon">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://muscleheadon.com/#org", "name": "Muscleheadon", "alternateName": ["Superhuman Club by Muscleheadon", "The Superhuman Club"], "legalName": "Muscleheadon Health and Fitness Pvt Ltd", "url": "https://muscleheadon.com/", "logo": "https://muscleheadon.com/club/naveen.jpg", "sameAs": ["https://instagram.com/muscleheadon"], "founder": {"@id": "https://muscleheadon.com/#naveen"}, "telephone": "+91-89999-01473", "areaServed": "IN"}, {"@type": "WebApplication", "name": "The Blueprint Assessment", "url": "https://muscleheadon.com/club/assessment", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "description": "Free 5-minute assessment. 21 questions score your six health pillars and the Mind that connects them, and email you a personal report.", "author": {"@id": "https://muscleheadon.com/#naveen"}, "publisher": {"@id": "https://muscleheadon.com/#org"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "isAccessibleForFree": true}]}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Blueprint Assessment · Free · The Superhuman Club</title>
-<meta name="description" content="Tired, stuck or unsure where to start? Find which of your seven health pillars is holding you back. 21 questions, 5 minutes, free. By Naveen Kulkarni, The Superhuman Club.">
+<meta name="description" content="Tired, stuck or unsure where to start? Find which of your six health pillars is holding you back, and where your mind is pointed. 21 questions, 5 minutes, free. By Naveen Kulkarni, The Superhuman Club.">
 <meta property="og:title" content="Which health pillar is holding you back? Free 5-minute Blueprint Assessment">
-<meta property="og:description" content="21 questions. Seven pillars. A personal report in your inbox. By Naveen Kulkarni, founder of The Superhuman Club.">
-<meta property="og:image" content="https://muscleheadon.github.io/naveen-about.jpg">
+<meta property="og:description" content="21 questions. Six pillars and the mind that connects them. A personal report in your inbox. By Naveen Kulkarni, founder of The Superhuman Club.">
+<meta property="og:image" content="https://muscleheadon.com/club/naveen-about.jpg">
 <link rel="preload" href="cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
 <style>
@@ -42,6 +49,7 @@ label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#A89
 label.c input{width:18px;height:18px;accent-color:#C9A048;flex:none;margin:2px 0 0}
 .err{color:#e0a9a9;font-size:13.5px;margin-top:10px;min-height:1em;text-align:center}
 .ov{text-align:center;margin:4px 0}.ov b{display:block;font:500 72px/1 'Cormorant Garamond',serif;color:#C9A048}.ov span{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#A89E82}
+.mindcap{font-size:13.5px;line-height:1.5;color:#A89E82;text-align:center;margin:2px 4px 10px}
 svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
 .lever{border:1px solid #6B2E22;background:linear-gradient(180deg,#1B110D,#121008);border-radius:12px;padding:18px;margin:16px 0}
 .lever .tag{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#E08A6E}
@@ -81,11 +89,11 @@ a.follow svg{width:18px;height:18px}
 
 <section id="intro">
 <h1>Which pillar is <em>holding you back</em>?</h1>
-<p class="l">Most people work hard on the wrong thing. This free assessment scores the seven pillars of your health and shows you, in plain words, where a small change will pay back fastest.</p>
+<p class="l">Most people work hard on the wrong thing. This free assessment scores the six pillars of your health, plus the mind at the centre that connects them, and shows you, in plain words, where a small change will pay back fastest.</p>
 <div class="pains"><div>Tired even after sleeping</div><div>Weight that won&rsquo;t shift</div><div>Energy crashes and cravings</div><div>Training but not changing</div></div>
 <div class="pills"><span>21 QUESTIONS</span><span>5 MINUTES</span><span>FREE</span></div>
 <button class="go" id="begin">START MY FREE ASSESSMENT &rarr;</button>
-<a class="by" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span>Created by <b>Naveen Chandra Kulkarni</b><br>Founder, Superhuman Club by Muscleheadon &middot; Bandra West</span></a>
+<a class="by" href="about"><img src="naveen.jpg" alt="Naveen Kulkarni"><span>Created by <b>Naveen Chandra Kulkarni</b><br>Founder, Superhuman Club by Muscleheadon &middot; Bandra West</span></a>
 <p class="fine">Educational, not medical advice. Your report is emailed to you; we never share your details.</p>
 </section>
 
@@ -118,12 +126,13 @@ a.follow svg{width:18px;height:18px}
 <section id="result" hidden>
 <h1 style="margin-bottom:0">Your <em>Blueprint</em></h1>
 <div class="ov"><b id="overall"></b><span id="ovlevel"></span></div>
-<svg class="radar" id="radar" viewBox="-62 0 464 318" aria-label="Radar chart of your seven pillar scores"></svg>
+<svg class="radar" id="radar" viewBox="-62 0 464 318" aria-label="Your six pillar scores, with Mind at the centre"></svg>
+<p class="mindcap" id="mindcap"></p>
 <div class="ok" id="mailed">Sending your full report&hellip;</div>
 <div class="lever" id="lever"></div>
 <div class="offer" id="offer"></div>
 <div class="best" id="best"></div>
-<div class="k">YOUR SEVEN PILLARS</div>
+<div class="k">YOUR SIX PILLARS + THE INTEGRATED MIND</div>
 <div id="pillars"></div>
 <div class="ig" id="sharebox">
 <div class="tag">GET THE &#8377;99 STARTER FREE</div>
@@ -138,7 +147,7 @@ a.follow svg{width:18px;height:18px}
 <a class="follow" href="https://instagram.com/muscleheadon" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff"/></svg>FOLLOW @MUSCLEHEADON</a>
 </div>
 <a class="ghost" id="share" href="#" target="_blank" rel="noopener">SHARE WITH A FRIEND ON WHATSAPP</a>
-<a class="nk" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span><b>Naveen Chandra Kulkarni</b>Founder of Superhuman Club by Muscleheadon. 12+ years in fitness, ACE and Precision Nutrition certified. Read his story &rarr;</span></a>
+<a class="nk" href="about"><img src="naveen.jpg" alt="Naveen Kulkarni"><span><b>Naveen Chandra Kulkarni</b>Founder of Superhuman Club by Muscleheadon. 12+ years in fitness, ACE and Precision Nutrition certified. Read his story &rarr;</span></a>
 <p class="fine">Scores are self-reported and for education only &mdash; not a diagnosis. If anything here concerns you, speak with your doctor.<br>&copy; 2026 Muscleheadon Health &amp; Fitness Pvt Ltd &middot; Bandra West, Mumbai</p>
 </section>
 </main>
@@ -187,23 +196,36 @@ el('lever').innerHTML='<div class="tag">YOUR BIGGEST LEVER</div><h2>'+w.n+'</h2>
 '<div class="blk"><div class="ic" style="background:#221E15;color:#C9A048">02</div><p><b>IN SIMPLE WORDS</b>'+w.what+'</p></div>'+
 '<div class="blk"><div class="ic" style="background:#16201A;color:#7FB98A">03</div><p><b>START THIS WEEK</b>'+w.fix[wb]+'</p></div></div>';
 el('offer').innerHTML='<div class="k" style="margin-top:0">GO DEEPER</div><p style="margin:0 0 4px;font-size:15px;line-height:1.5">The full 14-day plan for '+w.n.toLowerCase()+' is <b style="color:#EDE4CC">Sheet 0'+w.sheet+' · '+SH[w.sheet]+'</b>: step-by-step days, a daily tracker and a day-15 re-test.</p>'+
-'<a class="go" href="index.html?s='+w.sheet+'">GET SHEET 0'+w.sheet+' · ₹299 &rarr;</a><a class="ghost" href="index.html">OR START WITH THE ₹99 PILLAR STARTER</a>';
+'<a class="go" href="./?s='+w.sheet+'">GET SHEET 0'+w.sheet+' · ₹299 &rarr;</a><a class="ghost" href="./">OR START WITH THE ₹99 PILLAR STARTER</a>';
 el('best').innerHTML='<b style="color:#C9A048">Your strongest pillar: '+b.n+'.</b> '+b.pain[2];
 var h='';P.forEach(function(p,i){var s=r.sc[i],L=lvl(s),bd=band(s),weak=i===r.wi;
 h+='<div class="p"><div class="h"><b>'+p.n+'</b><span style="color:'+(weak?'#E08A6E':p.c)+'">'+LV[L].toUpperCase()+' · '+s.toFixed(1)+'/5</span></div><div class="mini"><i style="width:'+(s/5*100)+'%;background:'+(weak?'#B0452F':p.c)+'"></i></div><div class="m">'+p.pain[bd]+'</div><div class="s"><em>TRY THIS</em>'+p.fix[bd]+'</div></div>';});
 el('pillars').innerHTML=h;
-el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Find your weakest health pillar in 5 minutes: https://muscleheadon.github.io/assessment.html?src=share');
+el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Find your weakest health pillar in 5 minutes: https://muscleheadon.com/club/assessment?src=share');
 show('result');window.__r=r;drawStory(r);}
-function drawRadar(r){var sc=r.sc,cx=170,cy=158,R=112,n=sc.length,s='';
+// Six pillars on the hexagon; Mind (index 4) is the integrated purple halo at the centre.
+// The halo leans toward the pillars you're strongest in (most mindful of) and wires into every pillar.
+var HEX=[0,1,2,3,5,6],MI=4;
+function mindGeo(sc,cx,cy,R){var n=6,mean=0;HEX.forEach(function(k){mean+=sc[k]/6});var vx=0,vy=0;
+HEX.forEach(function(k,i){var a=-Math.PI/2+i*2*Math.PI/n,d=sc[k]-mean;vx+=d*Math.cos(a);vy+=d*Math.sin(a);});
+var m=sc[MI],len=Math.sqrt(vx*vx+vy*vy)||1,pull=Math.min(len/2.2,1)*R*0.30*(0.45+0.55*m/5);
+return {x:cx+vx/len*pull,y:cy+vy/len*pull,r:R*(0.12+0.16*m/5),m:m};}
+function drawRadar(r){var sc=r.sc,cx=170,cy=158,R=112,n=6,s='';
 function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
+s+='<defs><radialGradient id="halo"><stop offset="0" stop-color="#B3A8E0" stop-opacity=".95"/><stop offset=".45" stop-color="#8478B0" stop-opacity=".75"/><stop offset="1" stop-color="#8478B0" stop-opacity="0"/></radialGradient></defs>';
 for(var g=1;g<=5;g++){var ps=[];for(var i=0;i<n;i++)ps.push(pt(i,R*g/5).join(','));s+='<polygon points="'+ps.join(' ')+'" fill="none" stroke="#2A251A"/>';}
 for(var i=0;i<n;i++){var p=pt(i,R);s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#2A251A"/>';}
-s+='<polygon points="'+sc.map(function(v,i){return pt(i,R*v/5).join(',')}).join(' ')+'" fill="rgba(201,160,72,.2)" stroke="#C9A048" stroke-width="2"/>';
-sc.forEach(function(v,i){var p=pt(i,R*v/5);s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(i===r.wi?6:4)+'" fill="'+(i===r.wi?'#E08A6E':P[i].c)+'"/>';});
-var short=['Strength','Food','Supps','Stress','Mind','Tools','Sleep'];
-for(var i=0;i<n;i++){var p=pt(i,R+22),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
-s+='<text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="'+anc+'" fill="'+(i===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="12.5" letter-spacing="1.5">'+short[i].toUpperCase()+'</text>';}
-el('radar').innerHTML=s;}
+s+='<polygon points="'+HEX.map(function(k,i){return pt(i,R*sc[k]/5).join(',')}).join(' ')+'" fill="rgba(201,160,72,.16)" stroke="#C9A048" stroke-width="2"/>';
+var M=mindGeo(sc,cx,cy,R);
+HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<line x1="'+M.x+'" y1="'+M.y+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#8478B0" stroke-opacity="'+(0.25+0.6*sc[k]/5)+'" stroke-width="'+(0.8+1.8*sc[k]/5)+'"/>';});
+s+='<circle cx="'+M.x+'" cy="'+M.y+'" r="'+(M.r*2.1)+'" fill="url(#halo)"/><circle cx="'+M.x+'" cy="'+M.y+'" r="'+M.r+'" fill="none" stroke="#B3A8E0" stroke-width="1.5" stroke-opacity=".9"/>';
+s+='<text x="'+M.x+'" y="'+(M.y+4)+'" text-anchor="middle" fill="#F2EEFF" font-family="Barlow Condensed,sans-serif" font-size="11" letter-spacing="1.5">MIND '+M.m.toFixed(1)+'</text>';
+HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(k===r.wi?6:4)+'" fill="'+(k===r.wi?'#E08A6E':P[k].c)+'"/>';});
+var short=['Workout','Nutrition','Supplements','Wellness','Clinical','Recovery'];
+for(var i=0;i<n;i++){var k=HEX[i],p=pt(i,R+20),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
+s+='<text x="'+p[0]+'" y="'+(p[1]+(p[1]<cy-20?0:p[1]>cy+20?10:4))+'" text-anchor="'+anc+'" fill="'+(k===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="12.5" letter-spacing="1.5">'+short[i].toUpperCase()+'</text>';}
+el('radar').innerHTML=s;
+var mc=el('mindcap');if(mc)mc.innerHTML='<b style="color:#B3A8E0">Mind sits at the centre</b> and connects to every pillar. It leans toward the pillars you already pay attention to'+(r.bi!==MI?' (yours: '+P[r.bi].n.toLowerCase()+')':'')+'. Turn that attention to '+(r.wi!==MI?P[r.wi].n.toLowerCase():'your weakest pillar')+' and it starts to scale up.';}
 
 function drawStory(r){var c=el('story'),x=c.getContext('2d'),W=1080,H=1920;
 var go=function(){x.fillStyle='#0D0C0A';x.fillRect(0,0,W,H);
@@ -212,11 +234,15 @@ x.textAlign='center';x.fillStyle='#9A7A3A';x.font='600 34px "Barlow Condensed"';
 x.fillStyle='#EDE4CC';x.font='500 96px "Cormorant Garamond"';x.fillText('My Blueprint',540,300);
 x.fillStyle='#C9A048';x.font='500 300px "Cormorant Garamond"';x.fillText(String(r.overall),540,560);
 x.fillStyle='#A89E82';x.font='600 34px "Barlow Condensed"';x.fillText('OUT OF 100  ·  '+r.level.toUpperCase(),540,720);
-var cx=540,cy=1110,R=260,n=7;function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return[cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
+var cx=540,cy=1070,R=245,n=6;function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return[cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
 x.strokeStyle='#2E281C';x.lineWidth=2;for(var k=1;k<=5;k++){x.beginPath();for(var i=0;i<n;i++){var p=pt(i,R*k/5);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]);}x.closePath();x.stroke();}
-x.beginPath();r.sc.forEach(function(v,i){var p=pt(i,R*v/5);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]);});x.closePath();x.fillStyle='rgba(201,160,72,.25)';x.fill();x.strokeStyle='#C9A048';x.lineWidth=5;x.stroke();
-var sh=['STRENGTH','FOOD','SUPPS','STRESS','MIND','TOOLS','SLEEP'];x.font='600 30px "Barlow Condensed"';
-for(var i=0;i<n;i++){var p=pt(i,R+60);x.fillStyle=i===r.wi?'#E08A6E':'#A89E82';x.fillText(sh[i],p[0],p[1]+10);}
+x.beginPath();HEX.forEach(function(k,i){var p=pt(i,R*r.sc[k]/5);i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]);});x.closePath();x.fillStyle='rgba(201,160,72,.2)';x.fill();x.strokeStyle='#C9A048';x.lineWidth=5;x.stroke();
+var M=mindGeo(r.sc,cx,cy,R);HEX.forEach(function(k,i){var p=pt(i,R*r.sc[k]/5);x.strokeStyle='rgba(132,120,176,'+(0.25+0.6*r.sc[k]/5)+')';x.lineWidth=2+5*r.sc[k]/5;x.beginPath();x.moveTo(M.x,M.y);x.lineTo(p[0],p[1]);x.stroke();});
+var hg=x.createRadialGradient(M.x,M.y,0,M.x,M.y,M.r*2.1);hg.addColorStop(0,'rgba(179,168,224,.95)');hg.addColorStop(.45,'rgba(132,120,176,.75)');hg.addColorStop(1,'rgba(132,120,176,0)');x.fillStyle=hg;x.beginPath();x.arc(M.x,M.y,M.r*2.1,0,7);x.fill();
+x.strokeStyle='rgba(179,168,224,.9)';x.lineWidth=3;x.beginPath();x.arc(M.x,M.y,M.r,0,7);x.stroke();x.fillStyle='#F2EEFF';x.font='600 30px "Barlow Condensed"';x.fillText('MIND',M.x,M.y+10);
+HEX.forEach(function(k,i){var p=pt(i,R*r.sc[k]/5);x.fillStyle=k===r.wi?'#E08A6E':P[k].c;x.beginPath();x.arc(p[0],p[1],k===r.wi?13:9,0,7);x.fill();});
+var sh=['WORKOUT','NUTRITION','SUPPLEMENTS','WELLNESS','CLINICAL','RECOVERY'];x.font='600 30px "Barlow Condensed"';
+for(var i=0;i<n;i++){var p=pt(i,R+52);x.fillStyle=HEX[i]===r.wi?'#E08A6E':'#A89E82';x.fillText(sh[i],p[0],p[1]+10);}
 x.fillStyle='#EDE4CC';x.font='400 40px Barlow';x.fillText('Strongest: '+P[r.bi].n,540,1490);x.fillStyle='#E08A6E';x.fillText('Working on: '+P[r.wi].n,540,1550);
 x.fillStyle='#C9A048';x.beginPath();if(x.roundRect){x.roundRect(170,1630,740,110,20);}else{x.rect(170,1630,740,110);}x.fill();
 x.fillStyle='#0D0C0A';x.font='600 44px "Barlow Condensed"';x.fillText("WHAT'S YOUR SCORE?  @MUSCLEHEADON",540,1702);
@@ -231,14 +257,14 @@ if(h.replace(/[^A-Za-z0-9._]/g,'').length<2){e.textContent='Please enter your In
 if(!window.__u){var em=el('cemail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){e.textContent='Please enter the email you took the assessment with.';return;}window.__u={email:em};}
 var b=this;b.disabled=true;b.textContent='SENDING YOUR CODE…';
 fetch(API,{method:'POST',body:JSON.stringify({action:'share',email:__u.email,handle:h})}).then(function(r){return r.json()}).then(function(r){
-if(r&&r.ok){b.hidden=true;var cb=el('codebox');cb.hidden=false;cb.innerHTML='<div class="code">'+r.code+'</div><p class="l" style="margin-top:8px">Also sent to your email. <a href="index.html?code='+r.code+'" style="color:#C9A048">Claim your free Starter &rarr;</a></p>';try{fbq('trackCustom','StoryCodeClaimed');}catch(e){}}
+if(r&&r.ok){b.hidden=true;var cb=el('codebox');cb.hidden=false;cb.innerHTML='<div class="code">'+r.code+'</div><p class="l" style="margin-top:8px">Also sent to your email. <a href="./?code='+r.code+'" style="color:#C9A048">Claim your free Starter &rarr;</a></p>';try{fbq('trackCustom','StoryCodeClaimed');}catch(e){}}
 else{b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent=(r&&r.error)||'Something went wrong. Please try again.';}
 }).catch(function(){b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent='Connection issue. Please try again.';});};
 (function(){var c=(new URLSearchParams(location.search)).get('card');if(!c)return;var v=c.split('-').map(function(x){return Number(x)/10});if(v.length!==7||v.some(function(x){return !(x>=1&&x<=5)}))return;
 var bi=0;v.forEach(function(s,i){if(s>v[bi])bi=i;});var wi=v[0]<=v[1]?0:1;v.forEach(function(s,i){if(i!==5&&s<v[wi])wi=i;});var avg=v.reduce(function(a,b){return a+b},0)/7;
 var r={sc:v,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};show('result');['lever','offer','best','pillars','mailed'].forEach(function(id){el(id).hidden=true});document.querySelector('#result .k').hidden=true;
 el('overall').textContent=r.overall;el('ovlevel').textContent='OVERALL \u00b7 '+r.level.toUpperCase();drawRadar(r);drawStory(r);el('cemail').hidden=false;window.__r=r;
-el('share').href='https://wa.me/?text='+encodeURIComponent('I scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Take yours: https://muscleheadon.github.io/assessment.html?src=share');
+el('share').href='https://wa.me/?text='+encodeURIComponent('I scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Take yours: https://muscleheadon.com/club/assessment?src=share');
 setTimeout(function(){el('sharebox').scrollIntoView({behavior:'smooth'});},300);})();
 el('begin').onclick=function(){cur=0;show('quiz');renderQ();try{fbq('trackCustom','AssessmentStart');}catch(e){}};
 el('back').onclick=function(){if(cur>0){cur--;renderQ();}};
