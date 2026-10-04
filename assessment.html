@@ -2,18 +2,18 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 
-<link rel="canonical" href="https://muscleheadon.github.io/assessment">
-<meta property="og:url" content="https://muscleheadon.github.io/assessment">
+<link rel="canonical" href="https://club.muscleheadon.com/assessment">
+<meta property="og:url" content="https://club.muscleheadon.com/assessment">
 <meta property="og:site_name" content="Superhuman Club by Muscleheadon">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://muscleheadon.com/#org", "name": "Muscleheadon", "alternateName": ["Superhuman Club by Muscleheadon", "The Superhuman Club"], "legalName": "Muscleheadon Health and Fitness Pvt Ltd", "url": "https://muscleheadon.com/", "logo": "https://muscleheadon.github.io/naveen.jpg", "sameAs": ["https://instagram.com/muscleheadon"], "founder": {"@id": "https://muscleheadon.com/#naveen"}, "telephone": "+91-89999-01473", "areaServed": "IN"}, {"@type": "WebApplication", "name": "The Blueprint Assessment", "url": "https://muscleheadon.github.io/assessment", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "description": "Free 5-minute assessment. 21 questions score your six health pillars and the Mind that connects them, and email you a personal report.", "author": {"@id": "https://muscleheadon.com/#naveen"}, "publisher": {"@id": "https://muscleheadon.com/#org"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "isAccessibleForFree": true}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://muscleheadon.com/#org", "name": "Muscleheadon", "alternateName": ["Superhuman Club by Muscleheadon", "The Superhuman Club"], "legalName": "Muscleheadon Health and Fitness Pvt Ltd", "url": "https://muscleheadon.com/", "logo": "https://club.muscleheadon.com/naveen.jpg", "sameAs": ["https://instagram.com/muscleheadon"], "founder": {"@id": "https://muscleheadon.com/#naveen"}, "telephone": "+91-89999-01473", "areaServed": "IN"}, {"@type": "WebApplication", "name": "The Blueprint Assessment", "url": "https://club.muscleheadon.com/assessment", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "description": "Free 5-minute assessment. 21 questions score your six health pillars and the Mind that connects them, and email you a personal report.", "author": {"@id": "https://muscleheadon.com/#naveen"}, "publisher": {"@id": "https://muscleheadon.com/#org"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"}, "isAccessibleForFree": true}]}</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Blueprint Assessment · Free · The Superhuman Club</title>
 <meta name="description" content="Tired, stuck or unsure where to start? Find which of your six health pillars is holding you back, and where your mind is pointed. 21 questions, 5 minutes, free. By Naveen Kulkarni, The Superhuman Club.">
 <meta property="og:title" content="Which health pillar is holding you back? Free 5-minute Blueprint Assessment">
 <meta property="og:description" content="21 questions. Six pillars and the mind that connects them. A personal report in your inbox. By Naveen Kulkarni, founder of The Superhuman Club.">
-<meta property="og:image" content="https://muscleheadon.github.io/naveen-about.jpg">
+<meta property="og:image" content="https://club.muscleheadon.com/naveen-about.jpg">
 <link rel="preload" href="cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts.css">
 <style>
@@ -201,7 +201,7 @@ el('best').innerHTML='<b style="color:#C9A048">Your strongest pillar: '+b.n+'.</
 var h='';P.forEach(function(p,i){var s=r.sc[i],L=lvl(s),bd=band(s),weak=i===r.wi;
 h+='<div class="p"><div class="h"><b>'+p.n+'</b><span style="color:'+(weak?'#E08A6E':p.c)+'">'+LV[L].toUpperCase()+' · '+s.toFixed(1)+'/5</span></div><div class="mini"><i style="width:'+(s/5*100)+'%;background:'+(weak?'#B0452F':p.c)+'"></i></div><div class="m">'+p.pain[bd]+'</div><div class="s"><em>TRY THIS</em>'+p.fix[bd]+'</div></div>';});
 el('pillars').innerHTML=h;
-el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Find your weakest health pillar in 5 minutes: https://muscleheadon.github.io/assessment?src=share');
+el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Find your weakest health pillar in 5 minutes: https://club.muscleheadon.com/assessment?src=share');
 show('result');window.__r=r;drawStory(r);}
 // Six pillars on the hexagon; Mind (index 4) is the integrated purple halo at the centre.
 // The halo leans toward the pillars you're strongest in (most mindful of) and wires into every pillar.
@@ -264,7 +264,7 @@ else{b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textConte
 var bi=0;v.forEach(function(s,i){if(s>v[bi])bi=i;});var wi=v[0]<=v[1]?0:1;v.forEach(function(s,i){if(i!==5&&s<v[wi])wi=i;});var avg=v.reduce(function(a,b){return a+b},0)/7;
 var r={sc:v,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};show('result');['lever','offer','best','pillars','mailed'].forEach(function(id){el(id).hidden=true});document.querySelector('#result .k').hidden=true;
 el('overall').textContent=r.overall;el('ovlevel').textContent='OVERALL \u00b7 '+r.level.toUpperCase();drawRadar(r);drawStory(r);el('cemail').hidden=false;window.__r=r;
-el('share').href='https://wa.me/?text='+encodeURIComponent('I scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Take yours: https://muscleheadon.github.io/assessment?src=share');
+el('share').href='https://wa.me/?text='+encodeURIComponent('I scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Chandra Kulkarni (Superhuman Club by Muscleheadon). Take yours: https://club.muscleheadon.com/assessment?src=share');
 setTimeout(function(){el('sharebox').scrollIntoView({behavior:'smooth'});},300);})();
 el('begin').onclick=function(){cur=0;show('quiz');renderQ();try{fbq('trackCustom','AssessmentStart');}catch(e){}};
 el('back').onclick=function(){if(cur>0){cur--;renderQ();}};

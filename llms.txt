@@ -13,10 +13,10 @@ The Superhuman Club coaches every member across six pillars — Workout, Nutriti
 
 ## Pages
 - [Home](https://muscleheadon.com/): the club, programmes and locations
-- [About Naveen Chandra Kulkarni](https://muscleheadon.com/club/about): founder profile, the six pillars and the Mind, quick answers
-- [Free Blueprint Assessment](https://muscleheadon.com/club/assessment): 21 questions, 5 minutes, scores your six pillars and Mind, emails a personal report
-- [The Pillar Protocols](https://muscleheadon.com/club/): 14-day protocol sheets per pillar (₹299 each); the Pillar Starter (₹99)
-- [The Community](https://muscleheadon.com/club/join): members' group, ₹399/month or ₹3,999/year
+- [About Naveen Chandra Kulkarni](https://club.muscleheadon.com/about): founder profile, the six pillars and the Mind, quick answers
+- [Free Blueprint Assessment](https://club.muscleheadon.com/assessment): 21 questions, 5 minutes, scores your six pillars and Mind, emails a personal report
+- [The Pillar Protocols](https://club.muscleheadon.com/): 14-day protocol sheets per pillar (₹299 each); the Pillar Starter (₹99)
+- [The Community](https://club.muscleheadon.com/join): members' group, ₹399/month or ₹3,999/year
 
 ## Notes
 - Content is educational and not medical advice.
