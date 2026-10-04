@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Blueprint Assessment · Free · The Superhuman Club</title>
+<meta name="description" content="Tired, stuck or unsure where to start? Find which of your seven health pillars is holding you back. 21 questions, 5 minutes, free. By Naveen Kulkarni, The Superhuman Club.">
+<meta property="og:title" content="Which health pillar is holding you back? Free 5-minute Blueprint Assessment">
+<meta property="og:description" content="21 questions. Seven pillars. A personal report in your inbox. By Naveen Kulkarni, founder of The Superhuman Club.">
+<meta property="og:image" content="https://muscleheadon.github.io/naveen-about.jpg">
+<link rel="preload" href="cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#0D0C0A;color:#EDE4CC;font-family:Barlow,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-text-size-adjust:100%}
+.w{max-width:560px;margin:0 auto;padding:22px 18px 40px}
+.e{font:600 11px 'Barlow Condensed',system-ui,sans-serif;letter-spacing:.28em;color:#9A7A3A;text-align:center}
+h1{font:500 40px/1.06 'Cormorant Garamond',Georgia,serif;margin:12px 0 10px;text-align:center}h1 em{color:#C9A048;font-style:normal}
+h2{font:500 27px/1.15 'Cormorant Garamond',Georgia,serif;margin:0 0 8px}h2 em{color:#C9A048;font-style:normal}
+.l{color:#A89E82;font-size:15.5px;line-height:1.55;text-align:center;margin:0 0 14px}
+.by{display:flex;align-items:center;gap:10px;justify-content:center;margin:12px 0 4px;text-decoration:none}
+.by img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:1px solid #7A5E28}
+.by span{font-size:13px;color:#A89E82;line-height:1.3;text-align:left}.by b{color:#EDE4CC;font-weight:500}
+.pains{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.pains div{border:1px solid #2A251A;background:#121008;border-radius:8px;padding:11px 12px;font-size:14px;color:#EDE4CC;line-height:1.35}
+.pains div:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:#C9A048;margin-right:8px;vertical-align:middle}
+.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:6px 0 4px}.pills span{border:1px solid #2A251A;border-radius:99px;padding:5px 11px;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.18em;color:#EDE4CC;background:#121008}
+.k{font:600 11px 'Barlow Condensed',system-ui,sans-serif;letter-spacing:.22em;color:#9A7A3A;margin:22px 0 10px}
+button.go,a.go{display:block;width:100%;margin-top:14px;padding:16px;border:0;border-radius:8px;background:#C9A048;color:#0D0C0A;font:600 15px 'Barlow Condensed',system-ui,sans-serif;letter-spacing:.16em;cursor:pointer;text-align:center;text-decoration:none}
+a.ghost,button.ghost{display:block;width:100%;margin-top:10px;padding:14px;border-radius:8px;border:1px solid #2A251A;background:none;color:#EDE4CC;font:600 14px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-align:center;text-decoration:none;cursor:pointer}
+button:disabled{opacity:.5}
+.bar{height:4px;background:#221E15;border-radius:2px;overflow:hidden;margin:6px 0 18px}.bar i{display:block;height:100%;background:#C9A048;transition:width .25s}
+.meta{display:flex;justify-content:space-between;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.2em;color:#9A7A3A}
+.card{border:1px solid #2A251A;background:#121008;border-radius:10px;padding:22px 18px;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.qn{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#7A5E28}
+.qt{font:500 23px/1.25 'Cormorant Garamond',Georgia,serif;margin:8px 0 18px;min-height:3.6em}
+.opts{display:flex;gap:8px}.opts button{flex:1;padding:14px 0;border:1px solid #2A251A;border-radius:8px;background:#0D0C0A;color:#EDE4CC;font:500 18px Barlow,sans-serif;cursor:pointer}
+.opts button.sel,.opts button:hover{border-color:#C9A048;color:#C9A048}
+.scale{display:flex;justify-content:space-between;color:#6E6553;font-size:12px;margin-top:8px}
+.back{background:none;border:0;color:#A89E82;font-size:13px;margin-top:14px;cursor:pointer;padding:0}
+input.f{width:100%;padding:14px 12px;margin-bottom:9px;background:#121008;border:1px solid #2A251A;border-radius:8px;color:#EDE4CC;font:16px Barlow,system-ui,sans-serif}
+label.c{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#A89E82;line-height:1.45;margin:6px 0 2px;cursor:pointer}
+label.c input{width:18px;height:18px;accent-color:#C9A048;flex:none;margin:2px 0 0}
+.err{color:#e0a9a9;font-size:13.5px;margin-top:10px;min-height:1em;text-align:center}
+.ov{text-align:center;margin:4px 0}.ov b{display:block;font:500 72px/1 'Cormorant Garamond',serif;color:#C9A048}.ov span{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#A89E82}
+svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
+.lever{border:1px solid #6B2E22;background:linear-gradient(180deg,#1B110D,#121008);border-radius:12px;padding:18px;margin:16px 0}
+.lever .tag{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.22em;color:#E08A6E}
+.lever h2{margin:6px 0 10px}
+.row3{display:grid;gap:10px}
+.blk{display:flex;gap:12px;align-items:flex-start}
+.blk .ic{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 13px 'Barlow Condensed',sans-serif;letter-spacing:.06em}
+.blk p{margin:0;font-size:14.5px;line-height:1.55;color:#EDE4CC}.blk p b{display:block;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.2em;color:#A89E82;margin-bottom:2px}
+.best{border-left:2px solid #C9A048;padding:10px 12px;background:#17130A;font-size:14.5px;line-height:1.5;margin:14px 0}
+.p{border-top:1px solid #221E15;padding:14px 0}
+.p .h{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.p .h b{font:500 20px 'Cormorant Garamond',serif;color:#EDE4CC}
+.p .h span{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.2em;white-space:nowrap}
+.mini{height:6px;background:#221E15;border-radius:3px;margin:8px 0}.mini i{display:block;height:100%;border-radius:3px}
+.p .m{color:#A89E82;font-size:14px;line-height:1.5;margin:4px 0}
+.p .s{font-size:14px;line-height:1.5}.p .s em{font-style:normal;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.18em;color:#C9A048;margin-right:6px}
+.offer{background:#17130A;border:1px solid #2A251A;border-radius:12px;padding:18px;margin-top:18px}
+.nk{display:flex;gap:12px;align-items:center;border-top:1px solid #221E15;margin-top:22px;padding-top:18px;text-decoration:none}
+.nk img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.nk span{font-size:13.5px;color:#A89E82;line-height:1.45}.nk b{color:#EDE4CC;font-weight:500;display:block;font-size:15px}
+.ok{background:#121008;border:1px solid #2A251A;border-radius:8px;padding:10px 12px;font-size:13.5px;color:#A89E82;text-align:center;margin:8px 0 0}
+.fine{color:#6E6553;font-size:11.5px;line-height:1.6;margin-top:18px;text-align:center}
+[hidden]{display:none!important}
+</style>
+</head>
+<body><main class="w">
+<div class="e">THE SUPERHUMAN CLUB &middot; BY MUSCLEHEADON</div>
+
+<section id="intro">
+<h1>Which pillar is <em>holding you back</em>?</h1>
+<p class="l">Most people work hard on the wrong thing. This free assessment scores the seven pillars of your health and shows you, in plain words, where a small change will pay back fastest.</p>
+<div class="pains"><div>Tired even after sleeping</div><div>Weight that won&rsquo;t shift</div><div>Energy crashes and cravings</div><div>Training but not changing</div></div>
+<div class="pills"><span>21 QUESTIONS</span><span>5 MINUTES</span><span>FREE</span></div>
+<button class="go" id="begin">START MY FREE ASSESSMENT &rarr;</button>
+<a class="by" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span>Created by <b>Naveen Kulkarni</b><br>Founder, The Superhuman Club &middot; Bandra West</span></a>
+<p class="fine">Educational, not medical advice. Your report is emailed to you; we never share your details.</p>
+</section>
+
+<section id="quiz" hidden>
+<div class="meta"><span id="pname"></span><span id="count"></span></div>
+<div class="bar"><i id="fill" style="width:0"></i></div>
+<div class="card" id="qcard">
+<div class="qn" id="qnum"></div>
+<div class="qt" id="qtext"></div>
+<div class="opts" id="opts"></div>
+<div class="scale"><span>Rarely true</span><span>Almost always</span></div>
+</div>
+<button class="back" id="back" hidden>&larr; Back</button>
+</section>
+
+<section id="gate" hidden>
+<div class="card">
+<div class="qn">ALL 21 DONE</div>
+<h2 style="margin-top:8px">Your <em>Blueprint</em> is ready.</h2>
+<p class="l" style="text-align:left">Where should we send your personal report? You&rsquo;ll see your results on the next screen, and a full copy with a plan for each pillar lands in your inbox.</p>
+<input class="f" id="name" placeholder="First name" autocomplete="given-name">
+<input class="f" id="email" type="email" inputmode="email" placeholder="Email (your report goes here)" autocomplete="email">
+<input class="f" id="phone" type="tel" inputmode="tel" placeholder="WhatsApp number (optional)" autocomplete="tel">
+<label class="c"><input type="checkbox" id="consent"><span>Also send me a few short, practical tips for my weakest pillar, and occasional offers from The Superhuman Club. Unsubscribe any time.</span></label>
+<button class="go" id="send">SHOW MY RESULTS &rarr;</button>
+<div class="err" id="err"></div>
+</div>
+</section>
+
+<section id="result" hidden>
+<h1 style="margin-bottom:0">Your <em>Blueprint</em></h1>
+<div class="ov"><b id="overall"></b><span id="ovlevel"></span></div>
+<svg class="radar" id="radar" viewBox="-62 0 464 318" aria-label="Radar chart of your seven pillar scores"></svg>
+<div class="ok" id="mailed">Sending your full report&hellip;</div>
+<div class="lever" id="lever"></div>
+<div class="offer" id="offer"></div>
+<div class="best" id="best"></div>
+<div class="k">YOUR SEVEN PILLARS</div>
+<div id="pillars"></div>
+<a class="ghost" id="share" href="#" target="_blank" rel="noopener">SHARE WITH A FRIEND ON WHATSAPP</a>
+<a class="nk" href="about.html"><img src="naveen.jpg" alt="Naveen Kulkarni"><span><b>Naveen Kulkarni</b>Founder of The Superhuman Club. 12+ years in fitness, ACE and Precision Nutrition certified. Read his story &rarr;</span></a>
+<p class="fine">Scores are self-reported and for education only &mdash; not a diagnosis. If anything here concerns you, speak with your doctor.<br>&copy; 2026 Muscleheadon Health &amp; Fitness Pvt Ltd &middot; Bandra West, Mumbai</p>
+</section>
+</main>
+<script>
+var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';
+var Q=[['I do structured strength training at least twice a week.','I stay active through the day — walking and moving rather than sitting for long stretches.','My training gradually gets harder over time, rather than staying the same.'],
+['I eat enough protein, with a clear source at most meals.','I build my meals around whole foods rather than packaged or processed ones.','I’m mindful of when I eat, not just what — including how late at night.'],
+['The supplements I take are chosen for a real, specific reason.','I know what each supplement I take is actually meant to do.','I choose tested, quality products over whatever is cheapest or trending.'],
+['I get natural daylight early in the day, most days.','I have reliable ways to manage stress that genuinely work for me.','I wind down and ease off bright screens before bed.'],
+['I can focus on one thing for a sustained stretch without constant distraction.','I recover from stressful moments rather than staying rattled for hours.','My mind feels clear and sharp for most of the day.'],
+['When I use recovery tools — sauna, cold, bodywork, guided protocols — I do so with intent, not at random.','I base decisions about advanced interventions on real information rather than hype.','I have a working sense of my own health markers to guide these choices.'],
+['I get enough quality sleep to wake up genuinely rested.','I keep a fairly consistent sleep and wake time, even on weekends.','I build in real downtime to recover rather than running flat-out constantly.']];
+var D={"P":[{"k":"Workout","n":"Movement & Strength","c":"#C9A048","sheet":2,"what":"Muscle is your body’s engine and armour. It burns sugar, protects your joints and keeps you independent as you age. From your 30s it slowly fades unless you use it.","pain":["You may tire on stairs, feel stiff in the morning, or notice your body getting softer even when the scale hasn’t moved.","You are active, but without a plan that gets gradually harder, your body stops changing and results stall.","Your training is protecting your strength, metabolism and joints for the decades ahead."],"fix":["Two short full-body strength sessions this week — squats, push-ups, rows. 20 minutes is enough.","Make one thing a little harder each week: a few more reps, a little more weight, or less rest.","Keep it up, and add some power work (faster, explosive moves) to stay strong as you age."]},{"k":"Diet & Nutrition","n":"Food & Nutrition","c":"#5A9464","sheet":3,"what":"Food is information for your body. Protein builds and repairs; heavy, late or packaged meals keep your blood sugar and energy on a roller coaster.","pain":["Energy crashes after meals, cravings in the evening and belly fat that won’t shift are the usual signs.","Mostly good choices, but uneven protein and late dinners can quietly blunt your results.","Your plate is working for you: steadier energy, better recovery and fewer cravings."],"fix":["Add a palm-sized protein portion (dal, paneer, eggs, curd, chicken, fish) to every meal, starting today.","Eat vegetables and protein before your roti or rice, and finish dinner 3 hours before bed.","Fine-tune meal timing around your training and sleep."]},{"k":"Supplements","n":"Supplements","c":"#3E6E8C","sheet":4,"what":"Supplements fill gaps; they don’t replace food. Without a blood test, most people are guessing — paying for what they don’t need and missing what they do.","pain":["Low vitamin D and B12 are very common in India and often go unnoticed — tiredness and low mood can be the only clues.","Some of your money may be going on pills you don’t need, while real gaps stay unfilled.","Your supplements are chosen with intent — keep letting your blood tests decide."],"fix":["Get a simple baseline blood test (vitamin D, B12, HbA1c, lipids) before buying anything new.","Write down what each supplement is for. If you can’t, ask your doctor whether you need it.","Review your stack every 3 months against your latest blood test."]},{"k":"Wellness","n":"Stress & Body Clock","c":"#C8743A","sheet":1,"what":"Light and stress set your body clock. Morning daylight tells your body to wake up; dim evenings and a wind-down tell it to rest. Constant stress keeps it stuck on “on”.","pain":["Feeling wired but tired, irritable, or running on tea and coffee to get through the day.","You have some ways to unwind, but they aren’t there when you need them most.","You manage stress and your surroundings well — a real advantage."],"fix":["Get 10 minutes of outdoor daylight within an hour of waking, every day this week.","Pick one wind-down habit (a short walk, slow breathing, a shower) and do it every night.","Treat downtime like an appointment, and keep screens dim after 9 pm."]},{"k":"Mind","n":"Focus & Mind","c":"#8478B0","sheet":1,"what":"Focus is not just willpower. It rises and falls with your sleep, stress and blood sugar — fix those and clear thinking follows.","pain":["Brain fog, scattered attention and finding it hard to switch off at night.","You have sharp days, but they are easily knocked off course.","Clear, steady and focused most days — protect what makes that possible."],"fix":["Protect one 20-minute, phone-free focus block tomorrow.","Notice what scrambles your focus (late nights, sugar, notifications) and remove one.","Use short breaks between demanding tasks to keep your edge."]},{"k":"Advanced Protocols","n":"Recovery Tools & Tests","c":"#9A3B3B","sheet":4,"what":"Sauna, cold, bodywork and lab tests are powerful — but only on top of solid basics, and only when you measure what they do.","pain":["Tools used at random can cost time and money without moving the needle.","You are starting to use these tools; a baseline test would show you what’s actually working.","You use advanced tools with discipline and data."],"fix":["Build the basics first: sleep, strength and food. Then add tools.","Get a baseline health panel so you can measure what each tool changes.","Set a re-test date for anything you’re actively using."]},{"k":"Rest & Recovery","n":"Sleep & Recovery","c":"#4A8C8A","sheet":1,"what":"Sleep is when your body repairs muscle, balances hormones and clears your brain. Going to bed and waking at the same time matters as much as the hours.","pain":["Waking up tired, needing caffeine to function, and weekend lie-ins that never quite fix it.","Your sleep is hit or miss — and that quietly caps every other effort you make.","You recover well, and it shows in your energy and progress."],"fix":["Pick one wake-up time and hold it for 7 days, weekends included.","Cool, dark room; screens off 30 minutes before bed; no caffeine after 2 pm.","Keep your routine steady and watch your resting heart rate for early fatigue."]}],"S":{"1":"Adapt — The Rest Protocol","2":"Train — The Fitness Protocol","3":"Load Sets Fuel — The Muscle Protocol","4":"Measure — The Baseline Panel","5":"Fuel — The Glucose Protocol"},"L":["Untapped","Emerging","Building","Strong","Optimised"]};
+var P=D.P,LV=D.L,SH=D.S;
+var WORDS=['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty','Twenty-one'];
+var FLAT=[];Q.forEach(function(qs,pi){qs.forEach(function(t){FLAT.push({pi:pi,text:t});});});
+var TOTAL=FLAT.length,answers=new Array(TOTAL),cur=0,src=(new URLSearchParams(location.search)).get('src')||document.referrer.split('/')[2]||'direct';
+function el(id){return document.getElementById(id)}
+function lvl(s){return s>4.5?4:s>3.5?3:s>2.5?2:s>1.5?1:0}
+function band(s){return s<=2.5?0:s<=3.5?1:2}
+function show(id){['intro','quiz','gate','result'].forEach(function(x){el(x).hidden=(x!==id)});window.scrollTo(0,0);}
+function renderQ(){var it=FLAT[cur];el('pname').textContent=P[it.pi].n.toUpperCase();el('count').textContent=String(cur+1).padStart(2,'0')+' / '+TOTAL;
+el('fill').style.width=(cur/TOTAL*100)+'%';var c=el('qcard');c.style.animation='none';void c.offsetWidth;c.style.animation='';
+el('qnum').textContent='QUESTION '+WORDS[cur].toUpperCase();el('qtext').textContent=it.text;var o=el('opts');o.innerHTML='';
+for(var v=1;v<=5;v++){(function(v){var b=document.createElement('button');b.textContent=v;b.setAttribute('aria-label',v+' of 5');if(answers[cur]===v)b.className='sel';
+b.onclick=function(){answers[cur]=v;if(cur<TOTAL-1){cur++;renderQ();}else{el('fill').style.width='100%';show('gate');try{fbq('trackCustom','AssessmentAnswered');}catch(e){}}};o.appendChild(b);})(v);}
+el('back').hidden=(cur===0);}
+function scores(){var sc=P.map(function(p,pi){return (answers[pi*3]+answers[pi*3+1]+answers[pi*3+2])/3;});
+var bi=0;sc.forEach(function(s,i){if(s>sc[bi])bi=i;});var wi=sc[0]<=sc[1]?0:1;sc.forEach(function(s,i){if(i!==5&&s<sc[wi])wi=i;});
+var avg=sc.reduce(function(x,y){return x+y},0)/sc.length;return{sc:sc,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};}
+function v(id){return el(id).value.trim()}
+el('send').onclick=function(){var err=el('err');err.textContent='';
+var f={action:'assess',name:v('name'),email:v('email'),phone:v('phone'),consent:el('consent').checked,answers:answers,src:src};
+if(!f.name){err.textContent='Please enter your first name.';return;}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){err.textContent='Please enter a valid email so we can send your report.';return;}
+var b=this;b.disabled=true;b.textContent='PREPARING YOUR BLUEPRINT…';
+results(f.name);
+try{fbq('track','Lead',{content_name:'Blueprint Assessment'});}catch(e){}
+fetch(API,{method:'POST',body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(r){
+el('mailed').innerHTML=r&&r.ok?'&#10003; Your full report is on its way to <b style="color:#EDE4CC">'+f.email.replace(/</g,'')+'</b>. Check Promotions if you don’t see it.':'We couldn’t email your report just now — your results are below.';
+}).catch(function(){el('mailed').textContent='We couldn’t email your report just now — your results are below.';});};
+function results(name){var r=scores(),w=P[r.wi],b=P[r.bi],wb=band(r.sc[r.wi]);
+el('overall').textContent=r.overall;el('ovlevel').textContent='OVERALL · '+r.level.toUpperCase();drawRadar(r);
+el('lever').innerHTML='<div class="tag">YOUR BIGGEST LEVER</div><h2>'+w.n+'</h2><div class="mini" style="margin-bottom:14px"><i style="width:'+(r.sc[r.wi]/5*100)+'%;background:#B0452F"></i></div><div class="row3">'+
+'<div class="blk"><div class="ic" style="background:#2A1D16;color:#E08A6E">01</div><p><b>WHAT YOU MAY BE FEELING</b>'+w.pain[wb]+'</p></div>'+
+'<div class="blk"><div class="ic" style="background:#221E15;color:#C9A048">02</div><p><b>IN SIMPLE WORDS</b>'+w.what+'</p></div>'+
+'<div class="blk"><div class="ic" style="background:#16201A;color:#7FB98A">03</div><p><b>START THIS WEEK</b>'+w.fix[wb]+'</p></div></div>';
+el('offer').innerHTML='<div class="k" style="margin-top:0">GO DEEPER</div><p style="margin:0 0 4px;font-size:15px;line-height:1.5">The full 14-day plan for '+w.n.toLowerCase()+' is <b style="color:#EDE4CC">Sheet 0'+w.sheet+' · '+SH[w.sheet]+'</b>: step-by-step days, a daily tracker and a day-15 re-test.</p>'+
+'<a class="go" href="index.html?s='+w.sheet+'">GET SHEET 0'+w.sheet+' · ₹299 &rarr;</a><a class="ghost" href="index.html">OR START WITH THE ₹99 PILLAR STARTER</a>';
+el('best').innerHTML='<b style="color:#C9A048">Your strongest pillar: '+b.n+'.</b> '+b.pain[2];
+var h='';P.forEach(function(p,i){var s=r.sc[i],L=lvl(s),bd=band(s),weak=i===r.wi;
+h+='<div class="p"><div class="h"><b>'+p.n+'</b><span style="color:'+(weak?'#E08A6E':p.c)+'">'+LV[L].toUpperCase()+' · '+s.toFixed(1)+'/5</span></div><div class="mini"><i style="width:'+(s/5*100)+'%;background:'+(weak?'#B0452F':p.c)+'"></i></div><div class="m">'+p.pain[bd]+'</div><div class="s"><em>TRY THIS</em>'+p.fix[bd]+'</div></div>';});
+el('pillars').innerHTML=h;
+el('share').href='https://wa.me/?text='+encodeURIComponent('I just scored '+r.overall+'/100 on the free Blueprint Assessment by Naveen Kulkarni (The Superhuman Club). Find your weakest health pillar in 5 minutes: https://muscleheadon.github.io/assessment.html?src=share');
+show('result');}
+function drawRadar(r){var sc=r.sc,cx=170,cy=158,R=112,n=sc.length,s='';
+function pt(i,rr){var a=-Math.PI/2+i*2*Math.PI/n;return [cx+rr*Math.cos(a),cy+rr*Math.sin(a)];}
+for(var g=1;g<=5;g++){var ps=[];for(var i=0;i<n;i++)ps.push(pt(i,R*g/5).join(','));s+='<polygon points="'+ps.join(' ')+'" fill="none" stroke="#2A251A"/>';}
+for(var i=0;i<n;i++){var p=pt(i,R);s+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#2A251A"/>';}
+s+='<polygon points="'+sc.map(function(v,i){return pt(i,R*v/5).join(',')}).join(' ')+'" fill="rgba(201,160,72,.2)" stroke="#C9A048" stroke-width="2"/>';
+sc.forEach(function(v,i){var p=pt(i,R*v/5);s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(i===r.wi?6:4)+'" fill="'+(i===r.wi?'#E08A6E':P[i].c)+'"/>';});
+var short=['Strength','Food','Supps','Stress','Mind','Tools','Sleep'];
+for(var i=0;i<n;i++){var p=pt(i,R+22),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
+s+='<text x="'+p[0]+'" y="'+(p[1]+4)+'" text-anchor="'+anc+'" fill="'+(i===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="12.5" letter-spacing="1.5">'+short[i].toUpperCase()+'</text>';}
+el('radar').innerHTML=s;}
+el('begin').onclick=function(){cur=0;show('quiz');renderQ();try{fbq('trackCustom','AssessmentStart');}catch(e){}};
+el('back').onclick=function(){if(cur>0){cur--;renderQ();}};
+</script>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1384135736776247');fbq('track','PageView');
+</script>
+</body></html>
