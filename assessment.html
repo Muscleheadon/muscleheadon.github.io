@@ -82,6 +82,34 @@ svg.radar{display:block;margin:6px auto 0;width:100%;max-width:420px}
 a.follow{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;padding:14px;border-radius:8px;background:linear-gradient(90deg,#833AB4,#C13584 50%,#F77737);color:#fff;font:600 14px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-decoration:none}
 a.follow svg{width:18px;height:18px}
 [hidden]{display:none!important}
+
+/* Readability pass (phone-first): larger body copy and labels */
+.e,.k,.meta,.qn,.pills span,.lever .tag,.ig .tag,.ov span{font-size:12.5px}
+.blk p b,.p .h span,.p .s em{font-size:12px}
+.l{font-size:17px}
+.by span{font-size:14.5px}
+.pains div{font-size:15.5px;padding:12px 13px}
+.qt{font-size:27px;line-height:1.25}
+.opts button{font-size:20px;padding:16px 0}
+.scale{font-size:14px}
+.back{font-size:15px;padding:6px 0}
+label.c{font-size:15px;line-height:1.5}
+label.c input{width:20px;height:20px}
+input.f{font-size:17px;padding:15px 13px}
+.err{font-size:15px}
+.mindcap{font-size:15px;line-height:1.55}
+.blk p{font-size:16px;line-height:1.6}
+.best{font-size:16px}
+.p .h b{font-size:22px}
+.p .m,.p .s{font-size:15.5px;line-height:1.55}
+.ok{font-size:15px}
+.nk span{font-size:15px}.nk b{font-size:16.5px}
+.ig ol{font-size:16px}
+.fine{font-size:13px}
+button.go,a.go{font-size:16.5px}
+a.ghost,button.ghost,a.follow{font-size:15px}
+.ig .two .go,.ig .two .ghost{letter-spacing:.08em;font-size:15px;padding-inline:8px}
+.hint{font-size:13.5px;color:#A89E82;margin:-3px 0 10px 2px}
 </style>
 </head>
 <body><main class="w">
@@ -116,7 +144,8 @@ a.follow svg{width:18px;height:18px}
 <p class="l" style="text-align:left">Where should we send your personal report? You&rsquo;ll see your results on the next screen, and a full copy with a plan for each pillar lands in your inbox.</p>
 <input class="f" id="name" placeholder="First name" autocomplete="given-name">
 <input class="f" id="email" type="email" inputmode="email" placeholder="Email (your report goes here)" autocomplete="email">
-<input class="f" id="phone" type="tel" inputmode="tel" placeholder="WhatsApp number (optional)" autocomplete="tel">
+<input class="f" id="phone" type="tel" inputmode="tel" placeholder="WhatsApp number" autocomplete="tel" required>
+<div class="hint">10-digit mobile number. For your report and your next step only. No spam.</div>
 <label class="c"><input type="checkbox" id="consent"><span>Also send me a few short, practical tips for my weakest pillar, and occasional offers from The Superhuman Club. Unsubscribe any time.</span></label>
 <button class="go" id="send">SHOW MY RESULTS &rarr;</button>
 <div class="err" id="err"></div>
@@ -126,7 +155,7 @@ a.follow svg{width:18px;height:18px}
 <section id="result" hidden>
 <h1 style="margin-bottom:0">Your <em>Blueprint</em></h1>
 <div class="ov"><b id="overall"></b><span id="ovlevel"></span></div>
-<svg class="radar" id="radar" viewBox="-62 0 464 318" aria-label="Your six pillar scores, with Mind at the centre"></svg>
+<svg class="radar" id="radar" viewBox="-84 0 508 318" aria-label="Your six pillar scores, with Mind at the centre"></svg>
 <p class="mindcap" id="mindcap"></p>
 <div class="ok" id="mailed">Sending your full report&hellip;</div>
 <div class="lever" id="lever"></div>
@@ -179,10 +208,12 @@ function scores(){var sc=P.map(function(p,pi){return (answers[pi*3]+answers[pi*3
 var bi=0;sc.forEach(function(s,i){if(s>sc[bi])bi=i;});var wi=sc[0]<=sc[1]?0:1;sc.forEach(function(s,i){if(i!==5&&s<sc[wi])wi=i;});
 var avg=sc.reduce(function(x,y){return x+y},0)/sc.length;return{sc:sc,bi:bi,wi:wi,overall:Math.round(avg/5*100),level:LV[lvl(avg)]};}
 function v(id){return el(id).value.trim()}
+function normPhone(x){var d=String(x||'').replace(/[^0-9+]/g,'');var plus=d.charAt(0)==='+';d=d.replace(/\+/g,'');if(d.length===11&&d.charAt(0)==='0')d=d.slice(1);if(d.length===10&&/^[6-9]/.test(d))return '91'+d;if(d.length===12&&/^91[6-9]/.test(d))return d;if(plus&&d.length>=8&&d.length<=15&&!/^91/.test(d))return d;return '';}
 el('send').onclick=function(){var err=el('err');err.textContent='';
 window.__u={name:v('name'),email:v('email')};var f={action:'assess',name:v('name'),email:v('email'),phone:v('phone'),consent:el('consent').checked,answers:answers,src:src};
 if(!f.name){err.textContent='Please enter your first name.';return;}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){err.textContent='Please enter a valid email so we can send your report.';return;}
+var ph=normPhone(f.phone);if(!ph){err.textContent='Please enter your WhatsApp number (10 digits) so we can send your next step.';el('phone').focus();return;}f.phone=ph;
 var b=this;b.disabled=true;b.textContent='PREPARING YOUR BLUEPRINT…';
 results(f.name);
 try{fbq('track','Lead',{content_name:'Blueprint Assessment'});}catch(e){}
@@ -219,11 +250,11 @@ s+='<polygon points="'+HEX.map(function(k,i){return pt(i,R*sc[k]/5).join(',')}).
 var M=mindGeo(sc,cx,cy,R);
 HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<line x1="'+M.x+'" y1="'+M.y+'" x2="'+p[0]+'" y2="'+p[1]+'" stroke="#8478B0" stroke-opacity="'+(0.25+0.6*sc[k]/5)+'" stroke-width="'+(0.8+1.8*sc[k]/5)+'"/>';});
 s+='<circle cx="'+M.x+'" cy="'+M.y+'" r="'+(M.r*2.1)+'" fill="url(#halo)"/><circle cx="'+M.x+'" cy="'+M.y+'" r="'+M.r+'" fill="none" stroke="#B3A8E0" stroke-width="1.5" stroke-opacity=".9"/>';
-s+='<text x="'+M.x+'" y="'+(M.y+4)+'" text-anchor="middle" fill="#F2EEFF" font-family="Barlow Condensed,sans-serif" font-size="11" letter-spacing="1.5">MIND '+M.m.toFixed(1)+'</text>';
+s+='<text x="'+M.x+'" y="'+(M.y+4)+'" text-anchor="middle" fill="#F2EEFF" font-family="Barlow Condensed,sans-serif" font-size="13" letter-spacing="1">MIND '+M.m.toFixed(1)+'</text>';
 HEX.forEach(function(k,i){var p=pt(i,R*sc[k]/5);s+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="'+(k===r.wi?6:4)+'" fill="'+(k===r.wi?'#E08A6E':P[k].c)+'"/>';});
 var short=['Workout','Nutrition','Supplements','Wellness','Clinical','Recovery'];
 for(var i=0;i<n;i++){var k=HEX[i],p=pt(i,R+20),anc=Math.abs(p[0]-cx)<8?'middle':(p[0]>cx?'start':'end');
-s+='<text x="'+p[0]+'" y="'+(p[1]+(p[1]<cy-20?0:p[1]>cy+20?10:4))+'" text-anchor="'+anc+'" fill="'+(k===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="12.5" letter-spacing="1.5">'+short[i].toUpperCase()+'</text>';}
+s+='<text x="'+p[0]+'" y="'+(p[1]+(p[1]<cy-20?0:p[1]>cy+20?10:4))+'" text-anchor="'+anc+'" fill="'+(k===r.wi?'#E08A6E':'#A89E82')+'" font-family="Barlow Condensed,sans-serif" font-size="15" letter-spacing="1">'+short[i].toUpperCase()+'</text>';}
 el('radar').innerHTML=s;
 var mc=el('mindcap');if(mc)mc.innerHTML='<b style="color:#B3A8E0">Mind sits at the centre</b> and connects to every pillar. It leans toward the pillars you already pay attention to'+(r.bi!==MI?' (yours: '+P[r.bi].n.toLowerCase()+')':'')+'. Turn that attention to '+(r.wi!==MI?P[r.wi].n.toLowerCase():'your weakest pillar')+' and it starts to scale up.';}
 
