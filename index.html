@@ -42,6 +42,13 @@ button:disabled{opacity:.45}
 .fine{color:#6E6553;font-size:14.5px;line-height:1.6;margin-top:16px;text-align:center}
 .st{display:flex;gap:12px;align-items:center;padding:14px 12px;border:1px solid #C9A048;border-radius:10px;background:#1A1710;margin-bottom:6px}.st input{width:20px;height:20px;accent-color:#C9A048;flex:none;margin:0}.st .p{margin-left:auto;font:500 24px 'Cormorant Garamond',Georgia,serif;color:#C9A048}.bonus{display:inline-block;margin-top:5px;font:600 14.5px 'Barlow Condensed',sans-serif;letter-spacing:.16em;color:#0D0C0A;background:#C9A048;border-radius:3px;padding:2px 6px}.or{text-align:center;color:#A89E82;font-size:16px;margin:12px 0 8px}
 .by{color:#A89E82;font-size:15.5px;line-height:1.55;text-align:center;margin-top:18px;border-top:1px solid #221E15;padding-top:14px}
+.bump{display:flex;gap:12px;align-items:flex-start;border:2px dashed #C9A048;background:#1A1508;border-radius:8px;padding:14px;margin:10px 0 4px;cursor:pointer}
+.bump input{width:22px;height:22px;margin-top:2px;accent-color:#C9A048;flex:none}
+.bump .bt{font:600 15px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#C9A048}
+.bump .bd{font-size:15px;line-height:1.5;color:#EDE4CC;margin-top:4px}
+.bump select{background:#0D0C0A;color:#EDE4CC;border:1px solid #2A251A;border-radius:4px;font:inherit;padding:2px 4px}
+.bump.on{background:#221B09;border-style:solid}
+.bump[hidden],.oto[hidden]{display:none}
 </style>
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -59,6 +66,7 @@ fbq('init','1384135736776247');fbq('track','PageView');fbq('track','ViewContent'
 <form id="frm" novalidate>
 <div class="k">1 &middot; START HERE</div>
 <label class="st" id="stl"><input type="checkbox" id="starter" checked><div><div class="t">Begin &mdash; The Pillar Starter</div><div class="d">Score all five pillars, then a 7-day reset with one habit each</div><span class="bonus">BONUS &middot; THE BLUEPRINT ASSESSMENT</span></div><span class="p">&#8377;99</span></label>
+<label class="bump" id="bumpl"><input type="checkbox" id="bump"><div><div class="bt">YES, ADD MY FULL 14-DAY PROTOCOL &middot; +&#8377;150</div><div class="bd">The complete protocol for <select id="bw" aria-label="Which protocol"></select>, normally &#8377;<span id="bwas">299</span>. Only with the Starter, only on this page.</div></div></label>
 <div class="or">Ready to go deeper? Add full 14-day protocols &mdash; <b style="color:#EDE4CC">the Starter is included free</b>.</div>
 <div class="tk" id="tk"><b>LAUNCH PRICE</b><span>&#8377;299 a sheet until 15 Oct, then &#8377;399</span><i id="cd"></i></div>
 <div id="sheets"></div>
@@ -74,8 +82,8 @@ fbq('init','1384135736776247');fbq('track','PageView');fbq('track','ViewContent'
 <select class="f" id="goal"><option value="">Primary goal</option><option>Fat loss</option><option>Muscle gain</option><option>Better sleep</option><option>Energy &amp; metabolic health</option><option>Longevity &amp; healthspan</option><option>Fitness &amp; endurance</option></select>
 </details>
 
-<div id="codewrap" hidden style="margin-top:6px"><input class="f" id="code" placeholder="Free Starter code (e.g. SHC-AB12CD)" autocomplete="off" style="text-transform:uppercase"></div>
-<p style="text-align:center;font-size:13px;margin:4px 0 0"><a href="#" id="havecode" style="color:#A89E82">Have a free Starter code?</a></p>
+<div id="codewrap" hidden style="margin-top:6px"><input class="f" id="code" placeholder="Share code (e.g. SHC-AB12CD)" autocomplete="off" style="text-transform:uppercase"></div>
+<p style="text-align:center;font-size:13px;margin:4px 0 0"><a href="#" id="havecode" style="color:#A89E82">Have a share code? &#8377;50 off</a></p>
 <button id="go" type="submit">PAY &#8377;<span id="amt">99</span> &rarr;</button>
 <div class="err" id="err" role="alert"></div>
 <div class="trust"><span>UPI &middot; Cards &middot; Netbanking</span><span>Secured by Razorpay</span></div>
@@ -104,18 +112,23 @@ function sel(){return [].slice.call(document.querySelectorAll('#sheets input:che
 var ST=document.getElementById('starter');ST.addEventListener('change',upd);
 function hasCode(){return !el2('codewrap').hidden&&el2('code').value.trim().length>=6;}
 function el2(i){return document.getElementById(i)}
-function price(){var n=sel().length;if(!n&&ST.checked&&hasCode())return 0;return n?LADDER[n]:(ST.checked?99:0);}
+function bumpOn(){return !sel().length&&ST.checked&&el2('bump').checked;}
+function price(){var n=sel().length,p=n?LADDER[n]:(ST.checked?(bumpOn()?249:99):0);if(p&&hasCode())p=Math.max(49,p-50);return p;}
 function upd(){var s=sel(),n=s.length;[].forEach.call(document.querySelectorAll('label.s'),function(l){l.classList.toggle('on',l.querySelector('input').checked)});
 if(n){ST.checked=true;ST.disabled=true;}else{ST.disabled=false;}
-var pr=price();document.getElementById('go').innerHTML=pr===0?'GET MY FREE STARTER &rarr;':'PAY &#8377;<span id="amt">'+pr+'</span> &rarr;';document.getElementById('go').disabled=!pr&&!(ST.checked&&hasCode());
-var t='';if(n===0)t=ST.checked?'Most people start here &mdash; add a full protocol any time':'';if(n>0&&n<5)t='Starter included free &middot; add another sheet for just &#8377;'+(LADDER[n+1]-LADDER[n]);if(n===5)t='Best value &mdash; you save &#8377;'+(5*LADDER[1]-799)+' on all five, Starter included';
+el2('bumpl').hidden=!!n||!ST.checked;el2('bumpl').classList.toggle('on',bumpOn());
+var pr=price();document.getElementById('go').innerHTML='PAY &#8377;<span id="amt">'+pr+'</span> &rarr;';document.getElementById('go').disabled=!pr;
+var t='';if(n===0)t=ST.checked?(bumpOn()?'Starter + your full protocol &middot; you save &#8377;'+(99+LADDER[1]-249):'Most people add the full protocol above'):'';if(hasCode()&&pr)t=(t?t+' &middot; ':'')+'Share code: &#8377;50 off';if(n>0&&n<5)t='Starter included free &middot; add another sheet for just &#8377;'+(LADDER[n+1]-LADDER[n]);if(n===5)t='Best value &mdash; you save &#8377;'+(5*LADDER[1]-799)+' on all five, Starter included';
 document.getElementById('nudge').innerHTML=t;}
-(function(){var c=q.get('code');el2('havecode').onclick=function(e){e.preventDefault();el2('codewrap').hidden=false;this.parentNode.hidden=true;el2('code').focus();upd();};el2('code').addEventListener('input',upd);if(c){el2('codewrap').hidden=false;el2('havecode').parentNode.hidden=true;el2('code').value=c.toUpperCase();[].forEach.call(document.querySelectorAll('#sheets input'),function(i){i.checked=false});ST.checked=true;}})();
+(function(){var c=q.get('code');el2('havecode').onclick=function(e){e.preventDefault();el2('codewrap').hidden=false;this.parentNode.hidden=true;el2('code').focus();upd();};el2('code').addEventListener('input',upd);if(c){el2('codewrap').hidden=false;el2('havecode').parentNode.hidden=true;el2('code').value=c.toUpperCase();[].forEach.call(document.querySelectorAll('#sheets input'),function(i){i.checked=false});ST.checked=true;}
+var bw=el2('bw'),w=+(q.get('w')||0);SHEETS.forEach(function(x){var o=document.createElement('option');o.value=x[0];o.textContent=x[2].toLowerCase();if(x[0]===w)o.selected=true;bw.appendChild(o);});
+el2('bwas').textContent=LADDER[1];el2('bump').addEventListener('change',upd);bw.addEventListener('change',function(){el2('bump').checked=true;upd();});if(w)el2('bump').checked=true;})();
 upd();
 function v(id){return document.getElementById(id).value.trim()}
 document.getElementById('frm').addEventListener('submit',function(ev){ev.preventDefault();
 var b=document.getElementById('go'),err=document.getElementById('err');err.textContent='';
-var f={action:'checkout',code:(!sel().length&&hasCode())?el2('code').value.trim().toUpperCase():'',sheets:sel().length?sel():(ST.checked?[6]:[]),name:v('name'),email:v('email'),phone:v('phone'),age:v('age'),city:v('city'),goal:v('goal')};
+var SRC=(q.get('src')||q.get('utm_content')||q.get('utm_campaign')||'').slice(0,40);
+var f={action:'checkout',src:SRC,bump:bumpOn()?1:0,code:hasCode()?el2('code').value.trim().toUpperCase():'',sheets:sel().length?sel():(ST.checked?(bumpOn()?[+el2('bw').value]:[6]):[]),name:v('name'),email:v('email'),phone:v('phone'),age:v('age'),city:v('city'),goal:v('goal')};
 if(!f.sheets.length){err.textContent='Pick the Starter or at least one sheet.';return;}
 if(!f.name){err.textContent='Please enter your name.';return;}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){err.textContent='Please enter a valid email.';return;}

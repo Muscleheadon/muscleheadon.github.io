@@ -51,6 +51,9 @@ a.ghost{display:block;margin-top:10px;text-align:center;color:#A89E82;font-size:
 .r{width:48px;height:1px;background:#7A5E28;margin:0 auto 14px}.n{font:600 15px 'Barlow Condensed',system-ui,sans-serif;letter-spacing:.2em;color:#7A5E28;min-width:22px;padding-top:2px}
 a.pay{display:block;width:100%;margin-top:14px;padding:15px;border:0;border-radius:8px;background:#C9A048;color:#0D0C0A;font:600 16px 'Barlow Condensed',system-ui,sans-serif;letter-spacing:.2em;text-align:center;text-decoration:none}
 .optl{color:#A89E82;font-size:15.5px;margin:4px 0 8px}
+.oto{border:2px solid #C9A048;background:#1A1508;border-radius:10px;padding:18px 16px;margin:18px 0 22px;text-align:left}
+.oto[hidden]{display:none}
+.oto h2{font:500 28px/1.2 'Cormorant Garamond',serif;color:#EDE4CC;margin:6px 0 0}.oto h2 b{color:#C9A048;font-weight:500}
 </style>
 </head>
 
@@ -59,7 +62,15 @@ a.pay{display:block;width:100%;margin-top:14px;padding:15px;border:0;border-radi
 <div class="ok">&#10003;</div>
 <h1>Your sheets are <em>on the way</em></h1>
 <p class="l">Payment received. Your personal copy is being prepared and will reach your inbox within about 10 minutes. If you don't see it, check Spam or Promotions, or reply to the email address you paid with.</p>
-<div class="k">WHERE TO START</div>
+<div class="oto" id="oto" hidden>
+<div class="k" style="margin-top:0">ONE-TIME OFFER &middot; THIS PAGE ONLY</div>
+<h2>All five full protocols for <b>&#8377;499</b></h2>
+<p class="l" style="text-align:left;margin:6px 0 12px">Rest, fitness, muscle, the blood-marker baseline and glucose: the complete 14-day protocol for every pillar, normally &#8377;799. Emailed with your order, same personal copy.</p>
+<button class="pay" id="otobtn" type="button" style="width:100%;border:0;cursor:pointer">YES, ADD ALL FIVE &middot; &#8377;499 &rarr;</button>
+<div class="err" id="otoerr" role="alert" style="color:#e0a9a9;font-size:15px;text-align:center;margin-top:8px"></div>
+<a href="#start" id="otono" class="ghost" style="display:block;text-align:center">No thanks, I'll start with what I have</a>
+</div>
+<div class="k" id="start">WHERE TO START</div>
 <p class="l" style="text-align:left">Read the first page of each sheet tonight. Start the 14-day sequence tomorrow morning, log your numbers on the monitoring page, and re-test on day 15.</p>
 <div class="k">GET SO MUCH MORE, EVERY MONTH</div>
 <p class="l" style="text-align:left;margin-bottom:10px">Join The Superhuman Club Community and keep the progress coming &mdash; for &#8377;399 a month, less than the price of the two new sheets you get.</p>
@@ -78,9 +89,14 @@ a.pay{display:block;width:100%;margin-top:14px;padding:15px;border:0;border-radi
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
 var q=new URLSearchParams(location.search),id=q.get('razorpay_payment_link_id');
 function init(am){fbq('init','1384135736776247',am||{});fbq('track','PageView');}
-if(id&&/^plink_/.test(id)){fetch('https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec',{method:'POST',body:JSON.stringify({action:'verify',id:id})}).then(function(r){return r.json()}).then(function(v){
+var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';
+if(id&&/^plink_/.test(id)){fetch(API,{method:'POST',body:JSON.stringify({action:'verify',id:id})}).then(function(r){return r.json()}).then(function(v){
 var am={};if(v.em)am.em=v.em;if(v.ph)am.ph=v.ph;init(am);
 if(v.ok&&v.paid)fbq('track','Purchase',{value:v.value,currency:'INR',content_type:'product',content_ids:v.ids,num_items:v.ids.length},{eventID:id});
+if(v.ok&&v.paid&&v.value<499&&v.em){var o=document.getElementById('oto');o.hidden=false;document.getElementById('otono').onclick=function(){o.hidden=true;};
+document.getElementById('otobtn').onclick=function(){var b=this,er=document.getElementById('otoerr');b.disabled=true;b.textContent='OPENING SECURE PAYMENT…';er.textContent='';
+try{fbq('track','InitiateCheckout',{value:499,currency:'INR',content_name:'All five offer'});}catch(e){}
+fetch(API,{method:'POST',body:JSON.stringify({action:'checkout',oto:1,ref:id,src:'oto',sheets:[1,2,3,4,5],name:v.nm||'Pillar buyer',email:v.em,phone:v.ph})}).then(function(r){return r.json()}).then(function(r){if(r&&r.ok&&r.url){location.href=r.url;return;}throw new Error((r&&r.error)||'Please try again.');}).catch(function(e){b.disabled=false;b.textContent='YES, ADD ALL FIVE · ₹499 →';er.textContent=e.message||'Connection issue. Please try again.';});};}
 }).catch(function(){init();});}else{init();}
 </script>
 </body></html>

@@ -173,9 +173,9 @@ label.c{font-size:16px}.pains div{font-size:16.5px}
 <div class="k">YOUR SIX PILLARS + THE INTEGRATED MIND</div>
 <div id="pillars"></div>
 <div class="ig" id="sharebox">
-<div class="tag">GET THE &#8377;99 STARTER FREE</div>
+<div class="tag">SHARE &amp; GET &#8377;50 OFF</div>
 <h2>Share your score, get the <em>Starter</em> free</h2>
-<ol><li>Save your story card below (or tap share).</li><li>Post it to your Instagram story and tag <b>@muscleheadon</b>.</li><li>Enter your Instagram handle here &mdash; your free code comes straight to your inbox.</li></ol>
+<ol><li>Save your story card below (or tap share).</li><li>Post it to your Instagram story and tag <b>@muscleheadon</b>.</li><li>Enter your Instagram handle here &mdash; your &#8377;50-off code comes straight to your inbox. The Starter becomes &#8377;49.</li></ol>
 <canvas id="story" width="1080" height="1920" aria-label="Your Blueprint story card"></canvas>
 <div class="two"><button class="go" id="shareStory" style="margin-top:0">SHARE TO STORY</button><button class="ghost" id="saveStory" style="margin-top:0">SAVE IMAGE</button></div>
 <input class="f" id="cemail" type="email" placeholder="Email you took the assessment with" hidden style="margin-top:12px">
@@ -236,7 +236,7 @@ el('lever').innerHTML='<div class="tag">YOUR BIGGEST LEVER</div><h2>'+w.n+'</h2>
 '<div class="blk"><div class="ic" style="background:#221E15;color:#C9A048">02</div><p><b>IN SIMPLE WORDS</b>'+w.what+'</p></div>'+
 '<div class="blk"><div class="ic" style="background:#16201A;color:#7FB98A">03</div><p><b>START THIS WEEK</b>'+w.fix[wb]+'</p></div></div>';
 el('offer').innerHTML='<div class="k" style="margin-top:0">GO DEEPER</div><p style="margin:0 0 4px;font-size:15px;line-height:1.5">The full 14-day plan for '+w.n.toLowerCase()+' is <b style="color:#EDE4CC">Sheet 0'+w.sheet+' · '+SH[w.sheet]+'</b>: step-by-step days, a daily tracker and a day-15 re-test.</p>'+
-'<a class="go" href="./?s='+w.sheet+'">GET SHEET 0'+w.sheet+' · ₹299 &rarr;</a><a class="ghost" href="./">OR START WITH THE ₹99 PILLAR STARTER</a>';
+'<a class="go" href="./?w='+w.sheet+'&src='+encodeURIComponent('assess_'+String(src).replace(/[^a-z0-9_]/gi,'').slice(0,24))+'">START + SHEET 0'+w.sheet+' · ₹249 &rarr;</a><a class="ghost" href="./?src='+encodeURIComponent('assess_'+String(src).replace(/[^a-z0-9_]/gi,'').slice(0,24))+'">OR JUST THE ₹99 STARTER</a>';
 el('best').innerHTML='<b style="color:#C9A048">Your strongest pillar: '+b.n+'.</b> '+b.pain[2];
 var h='';P.forEach(function(p,i){var s=r.sc[i],L=lvl(s),bd=band(s),weak=i===r.wi;
 h+='<div class="p"><div class="h"><b>'+p.n+'</b><span style="color:'+(weak?'#E08A6E':p.c)+'">'+LV[L].toUpperCase()+' · '+s.toFixed(1)+'/5</span></div><div class="mini"><i style="width:'+(s/5*100)+'%;background:'+(weak?'#B0452F':p.c)+'"></i></div><div class="m">'+p.pain[bd]+'</div><div class="s"><em>TRY THIS</em>'+p.fix[bd]+'</div></div>';});
@@ -297,7 +297,7 @@ if(h.replace(/[^A-Za-z0-9._]/g,'').length<2){e.textContent='Please enter your In
 if(!window.__u){var em=el('cemail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){e.textContent='Please enter the email you took the assessment with.';return;}window.__u={email:em};}
 var b=this;b.disabled=true;b.textContent='SENDING YOUR CODE…';
 fetch(API,{method:'POST',body:JSON.stringify({action:'share',email:__u.email,handle:h})}).then(function(r){return r.json()}).then(function(r){
-if(r&&r.ok){b.hidden=true;var cb=el('codebox');cb.hidden=false;cb.innerHTML='<div class="code">'+r.code+'</div><p class="l" style="margin-top:8px">Also sent to your email. <a href="./?code='+r.code+'" style="color:#C9A048">Claim your free Starter &rarr;</a></p>';try{fbq('trackCustom','StoryCodeClaimed');}catch(e){}}
+if(r&&r.ok){b.hidden=true;var cb=el('codebox');cb.hidden=false;cb.innerHTML='<div class="code">'+r.code+'</div><p class="l" style="margin-top:8px">Also sent to your email. <a href="./?code='+r.code+'&src=share" style="color:#C9A048">Use it now: Starter for &#8377;49 &rarr;</a></p>';try{fbq('trackCustom','StoryCodeClaimed');}catch(e){}}
 else{b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent=(r&&r.error)||'Something went wrong. Please try again.';}
 }).catch(function(){b.disabled=false;b.textContent="I'VE POSTED IT · SEND MY CODE";e.textContent='Connection issue. Please try again.';});};
 (function(){var c=(new URLSearchParams(location.search)).get('card');if(!c)return;var v=c.split('-').map(function(x){return Number(x)/10});if(v.length!==7||v.some(function(x){return !(x>=1&&x<=5)}))return;
