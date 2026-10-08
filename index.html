@@ -94,7 +94,7 @@ fbq('init','1384135736776247');fbq('track','PageView');fbq('track','ViewContent'
 <p class="fine">Members of the Club community get a new sheet every fortnight &mdash; details after checkout.<br>Your name and order number are printed on every page of your copy &mdash; for personal use only.<br>Educational content, not medical advice.</p>
 </main>
 <script>
-var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';
+var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';function postAPI(f,n){n=n||3;return fetch(API,{method:'POST',body:JSON.stringify(f)}).then(function(r){if(!r.ok)throw new Error('fetch '+r.status);return r.json()}).catch(function(e){if(n>1&&(!e||!e.message||e.message.indexOf('fetch')>=0||e instanceof SyntaxError)){return new Promise(function(ok){setTimeout(ok,1200)}).then(function(){return postAPI(f,n-1)})}throw e});}try{fetch(API,{method:'POST',body:'{"action":"warm"}'}).catch(function(){})}catch(e){}
 var SHEETS=[[1,'Adapt &mdash; The Rest Protocol','Sleep'],[2,'Train &mdash; The Fitness Protocol','Zone 2 and VO&#8322;max'],[3,'Load Sets Fuel &mdash; The Muscle Protocol','Protein and muscle'],[4,'Measure &mdash; The Baseline Panel','Blood-marker baseline'],[5,'Fuel &mdash; The Glucose Protocol','Glucose and fasting']];
 var END=Date.parse('2026-10-15T23:59:59+05:30'),LAUNCH=Date.now()<=END;
 var LADDER={0:0,1:LAUNCH?299:399,2:449,3:599,4:699,5:799};
@@ -134,11 +134,11 @@ if(!f.name){err.textContent='Please enter your name.';return;}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)){err.textContent='Please enter a valid email.';return;}
 if(f.phone.replace(/\D/g,'').length<10){err.textContent='Please enter a valid mobile number.';return;}
 try{fbq('track','InitiateCheckout',{value:price(),currency:'INR',num_items:f.sheets.length});}catch(e){}
-b.disabled=true;var lab=b.innerHTML;b.textContent='OPENING SECURE PAYMENT…';
-fetch(API,{method:'POST',body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(r){
+b.disabled=true;var lab=b.innerHTML;b.textContent='OPENING SECURE PAYMENT…';var slow=setTimeout(function(){b.textContent='STILL CONNECTING — PLEASE WAIT…'},7000);
+postAPI(f).then(function(r){
 if(r&&r.ok&&r.url){location.href=r.url;return;}
 throw new Error((r&&r.error)||'Something went wrong. Please try again.');
-}).catch(function(e){b.disabled=false;b.innerHTML=lab;err.textContent=(e&&e.message&&e.message.indexOf('fetch')<0)?e.message:'Connection issue. Please tap pay again.';});
+}).catch(function(e){clearTimeout(slow);b.disabled=false;b.innerHTML=lab;err.textContent=(e&&e.message&&e.message.indexOf('fetch')<0)?e.message:'Connection issue. Please tap pay again.';});
 });
 </script>
 </body></html>

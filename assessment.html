@@ -190,7 +190,7 @@ label.c{font-size:16px}.pains div{font-size:16.5px}
 </section>
 </main>
 <script>
-var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';
+var API='https://script.google.com/macros/s/AKfycbxXcqV--XSvSmh7yWonIvjncrI_HJGnVFJakbZhZPZsAwGeJPA3xhshU8B5WUlBARtj/exec';function postAPI(f,n){n=n||3;return fetch(API,{method:'POST',body:JSON.stringify(f)}).then(function(r){if(!r.ok)throw new Error('fetch '+r.status);return r.json()}).catch(function(e){if(n>1&&(!e||!e.message||e.message.indexOf('fetch')>=0||e instanceof SyntaxError)){return new Promise(function(ok){setTimeout(ok,1200)}).then(function(){return postAPI(f,n-1)})}throw e});}try{fetch(API,{method:'POST',body:'{"action":"warm"}'}).catch(function(){})}catch(e){}
 var Q=[['I do structured strength training at least twice a week.','I stay active through the day — walking and moving rather than sitting for long stretches.','My training gradually gets harder over time, rather than staying the same.'],
 ['I eat enough protein, with a clear source at most meals.','I build my meals around whole foods rather than packaged or processed ones.','I’m mindful of when I eat, not just what — including how late at night.'],
 ['The supplements I take are chosen for a real, specific reason.','I know what each supplement I take is actually meant to do.','I choose tested, quality products over whatever is cheapest or trending.'],
@@ -226,7 +226,7 @@ var ph=normPhone(f.phone);if(!ph){err.textContent='Please enter your WhatsApp nu
 var b=this;b.disabled=true;b.textContent='PREPARING YOUR BLUEPRINT…';
 results(f.name);
 try{fbq('track','Lead',{content_name:'Blueprint Assessment'});}catch(e){}
-fetch(API,{method:'POST',body:JSON.stringify(f)}).then(function(r){return r.json()}).then(function(r){
+postAPI(f).then(function(r){
 el('mailed').innerHTML=r&&r.ok?'&#10003; Your full report is on its way to <b style="color:#EDE4CC">'+f.email.replace(/</g,'')+'</b>. Check Promotions if you don’t see it.':'We couldn’t email your report just now — your results are below.';
 }).catch(function(){el('mailed').textContent='We couldn’t email your report just now — your results are below.';});};
 function results(name){var r=scores(),w=P[r.wi],b=P[r.bi],wb=band(r.sc[r.wi]);
